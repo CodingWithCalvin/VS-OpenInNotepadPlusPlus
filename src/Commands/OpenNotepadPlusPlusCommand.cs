@@ -13,25 +13,30 @@ namespace OpenInNotepadPlusPlus.Commands
 	internal sealed class OpenNotepadPlusPlusCommand
 	{
 		private readonly Package _package;
+	    private readonly Settings _settings;
 
-		private OpenNotepadPlusPlusCommand(Package package)
+		private OpenNotepadPlusPlusCommand(Package package, Settings settings)
 		{
 			this._package = package;
-			if (!(this.ServiceProvider.GetService(typeof(IMenuCommandService)) is OleMenuCommandService service))
-			{
-				return;
-			}
-			var command = new MenuCommand(this.OpenPath, new CommandID(PackageGuids.guidOpenInNppCmdSet, 256));
-			service.AddCommand(command);
-		}
+		    this._settings = settings;
+
+		    var commandService = (OleMenuCommandService)ServiceProvider.GetService(typeof(IMenuCommandService));
+
+		    if (commandService != null)
+		    {
+		        var menuCommandId = new CommandID(PackageGuids.guidOpenInNppCmdSet, PackageIds.OpenInNpp);
+		        var menuItem = new MenuCommand(OpenPath, menuCommandId);
+		        commandService.AddCommand(menuItem);
+		    }
+        }
 
 		public static OpenNotepadPlusPlusCommand Instance { get; private set; }
 
 		private IServiceProvider ServiceProvider => this._package;
 
-		public static void Initialize(Package package)
+		public static void Initialize(Package package, Settings settings)
 		{
-			Instance = new OpenNotepadPlusPlusCommand(package);
+			Instance = new OpenNotepadPlusPlusCommand(package, settings);
 		}
 
 		private void OpenPath(object sender, EventArgs e)
@@ -40,7 +45,7 @@ namespace OpenInNotepadPlusPlus.Commands
 			try
 			{
 				var selectedFilePath = ProjectHelpers.GetSelectedPath(service);
-				var executablePath = VsPackage.Settings.FolderPath;
+				var executablePath = _settings.FolderPath;
 				if (!string.IsNullOrEmpty(selectedFilePath) && !string.IsNullOrEmpty(executablePath))
 				{
 					OpenNotepadPlusPlus(executablePath, selectedFilePath);

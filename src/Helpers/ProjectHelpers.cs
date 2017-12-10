@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Reflection;
 using EnvDTE;
 using EnvDTE80;
 
@@ -13,7 +15,7 @@ namespace OpenInNotepadPlusPlus.Helpers
 				switch (selectedItem.Object)
 				{
 					case ProjectItem projectItem:
-						return projectItem.Document?.FullName ?? projectItem.Properties?.Item("FullPath").ToString();
+						return projectItem.FileNames[1];
 					case Project project:
 						return project.FullName;
 					case Solution solution:

@@ -3,19 +3,21 @@
 
 	<Extern href="stdidcmd.h"/>
 	<Extern href="vsshlids.h"/>
-	<Include href="KnownImageIds.vsct"/>
 
 	<Commands package="guidPackage">
 		<Buttons>
-			<Button guid="guidOpenInNppCmdSet" id="OpenInNpp" priority="0x0500" type="Button">
+			<Button guid="guidOpenInNppCmdSet" id="OpenInNpp" priority="0x0100" type="Button">
 				<Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_FOLDER_EXPLORE" />
-				<Icon guid="ImageCatalogGuid" id="VisualStudioOnline" />
-				<CommandFlag>IconIsMoniker</CommandFlag>
+				<Icon guid="guidIcons" id="NotepadPlusPlus" />
 				<Strings>
 					<ButtonText>Open in Notepad++</ButtonText>
 				</Strings>
 			</Button>
 		</Buttons>
+
+		<Bitmaps>
+			<Bitmap guid="guidIcons" usedList="NotepadPlusPlus" href="Resources/Icon.png" />
+		</Bitmaps>
 	</Commands>
 
 	<CommandPlacements>
@@ -36,6 +38,10 @@
 
 		<GuidSymbol name="guidOpenInNppCmdSet" value="{f5e04065-ce59-4638-a312-e6eb6cc73dbc}">
 			<IDSymbol name="OpenInNpp" value="0x0100" />
+		</GuidSymbol>
+
+		<GuidSymbol name="guidIcons" value="{f5e04065-ce59-4638-a312-e6eb6cc73dbd}">
+			<IDSymbol name="NotepadPlusPlus" value="1" />
 		</GuidSymbol>
 	</Symbols>
 </CommandTable>
