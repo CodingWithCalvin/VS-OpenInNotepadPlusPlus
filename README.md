@@ -22,7 +22,7 @@ The extension will automatically find notepad++.exe when it's located at Notepad
 
 ## Contribute
 
-For cloning and building this project yourself, make sure to install the Extensibility Tools 2015 extension for Visual Studio which enables some features used by this project.
+For cloning and building this project yourself, make sure to install the [Extensibility Tools 2015 extension](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.ExtensibilityTools) for Visual Studio which enables some features used by this project.
 
 ## License
 
