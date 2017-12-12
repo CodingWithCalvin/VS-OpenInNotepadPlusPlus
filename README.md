@@ -1,5 +1,7 @@
 # Open in Notepad++
 
+[![Build status](https://ci.appveyor.com/api/projects/status/github/calvinallen/open-in-notepad-plus-plus?retina=true)](https://ci.appveyor.com/project/CalvinAAllen/open-in-notepad-plus-plus)
+
 A Visual Studio extension that adds a menu command that lets you open any solution, project, folder or file in Notepad++.
 
 Based HEAVILY on [Mads Kristensen's OpenInSublimeText](https://github.com/madskristensen/OpenInSublimeText) extension.
