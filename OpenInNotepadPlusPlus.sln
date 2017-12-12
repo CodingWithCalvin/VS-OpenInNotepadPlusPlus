@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "open-in-notepad-plus-plus", "open-in-notepad-plus-plus.csproj", "{ADD4175C-AA5C-49E4-AFAF-6B9D3E832E8D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenInNotepadPlusPlus", "src\OpenInNotepadPlusPlus.csproj", "{ADD4175C-AA5C-49E4-AFAF-6B9D3E832E8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
