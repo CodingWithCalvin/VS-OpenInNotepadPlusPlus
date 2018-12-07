@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 
 namespace OpenInNotepadPlusPlus.Helpers
@@ -9,7 +10,7 @@ namespace OpenInNotepadPlusPlus.Helpers
 		private static IServiceProvider _provider;
 		private static string _name;
 
-		public static void Initialize(IServiceProvider provider, string name)
+		public static void Initialize(Package provider, string name)
 		{
 			_provider = provider;
 			_name = name;
