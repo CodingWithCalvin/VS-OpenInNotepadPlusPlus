@@ -1,9 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <MinimumVisualStudioVersion>15.0</MinimumVisualStudioVersion>
+    <MinimumVisualStudioVersion>16.0</MinimumVisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <UseCodebase>true</UseCodebase>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>15.0</OldToolsVersion>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -103,41 +108,41 @@
     <PackageReference Include="Microsoft.VisualStudio.OLE.Interop">
       <Version>7.10.6071</Version>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Shell.15.0">
-      <Version>15.4.27004</Version>
+    <PackageReference Include="Microsoft.VisualStudio.Shell.14.0">
+      <Version>14.3.25407</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Shell.Framework">
-      <Version>15.4.27004</Version>
+      <Version>15.9.28307</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Shell.Immutable.10.0">
-      <Version>15.0.25414</Version>
+      <Version>15.0.25415</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Shell.Immutable.11.0">
-      <Version>15.0.25414</Version>
+      <Version>15.0.25415</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Shell.Immutable.12.0">
-      <Version>15.0.25414</Version>
+      <Version>15.0.25415</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Shell.Immutable.14.0">
-      <Version>15.0.25404</Version>
+      <Version>15.0.25405</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Shell.Interop">
-      <Version>7.10.6071</Version>
+      <Version>7.10.6072</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Shell.Interop.10.0">
-      <Version>10.0.30319</Version>
+      <Version>10.0.30320</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Shell.Interop.11.0">
-      <Version>11.0.61030</Version>
+      <Version>11.0.61031</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Shell.Interop.12.0">
-      <Version>12.0.30110</Version>
+      <Version>12.0.30111</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Shell.Interop.8.0">
-      <Version>8.0.50727</Version>
+      <Version>8.0.50728</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Shell.Interop.9.0">
-      <Version>9.0.30729</Version>
+      <Version>9.0.30730</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.TextManager.Interop">
       <Version>7.10.6070</Version>
