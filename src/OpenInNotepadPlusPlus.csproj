@@ -53,6 +53,8 @@
     <VSCTCompile Include="VSCommands.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
       <SubType>Designer</SubType>
+      <LastGenOutput>VSCommands1.cs</LastGenOutput>
+      <Generator>VsctGenerator</Generator>
     </VSCTCompile>
   </ItemGroup>
   <ItemGroup>
@@ -66,7 +68,7 @@
     <Compile Include="source.extension.cs">
       <DependentUpon>source.extension.vsixmanifest</DependentUpon>
     </Compile>
-    <Compile Include="VSCommands.cs">
+    <Compile Include="VSCommands1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>VSCommands.vsct</DependentUpon>
@@ -104,6 +106,9 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.OLE.Interop">
       <Version>7.10.6071</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.SDK.Analyzers">
+      <Version>15.8.36</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Shell.14.0">
       <Version>14.3.25407</Version>

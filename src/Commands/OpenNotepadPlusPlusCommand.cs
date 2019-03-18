@@ -44,6 +44,7 @@ namespace OpenInNotepadPlusPlus.Commands
 			var service = (DTE2)this.ServiceProvider.GetService(typeof(DTE));
 			try
 			{
+                ThreadHelper.ThrowIfNotOnUIThread();
 				var selectedFilePath = ProjectHelpers.GetSelectedPath(service);
 				var executablePath = _settings.FolderPath;
 				if (!string.IsNullOrEmpty(selectedFilePath) && !string.IsNullOrEmpty(executablePath))

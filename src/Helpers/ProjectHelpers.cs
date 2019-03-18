@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Reflection;
 using EnvDTE;
 using EnvDTE80;
+using Microsoft.VisualStudio.Shell;
 
 namespace OpenInNotepadPlusPlus.Helpers
 {
@@ -10,6 +11,8 @@ namespace OpenInNotepadPlusPlus.Helpers
 	{
 		public static string GetSelectedPath(DTE2 dte)
 		{
+            ThreadHelper.ThrowIfNotOnUIThread();
+
 			foreach (UIHierarchyItem selectedItem in (Array)dte.ToolWindows.SolutionExplorer.SelectedItems)
 			{
 				switch (selectedItem.Object)

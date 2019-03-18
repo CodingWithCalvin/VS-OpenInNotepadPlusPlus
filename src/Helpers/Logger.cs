@@ -29,6 +29,8 @@ namespace OpenInNotepadPlusPlus.Helpers
 				{
 					return;
 				}
+                ThreadHelper.ThrowIfNotOnUIThread();
+
 				_pane.OutputString(DateTime.Now + ": " + message + Environment.NewLine);
 			}
 			catch (Exception ex)
@@ -43,16 +45,24 @@ namespace OpenInNotepadPlusPlus.Helpers
 			{
 				return;
 			}
+
+            ThreadHelper.ThrowIfNotOnUIThread();
 			Log(ex.ToString());
 		}
 
 		private static bool EnsurePane()
-		{
-			if (_pane == null)
+        {
+            ThreadHelper.ThrowIfNotOnUIThread();
+			
+            if (_pane == null)
 			{
 				var guid = Guid.NewGuid();
-				var output = (IVsOutputWindow)_provider.GetService(typeof(SVsOutputWindow));
-				output.CreatePane(ref guid, _name, 1, 1);
+				var output = _provider.GetService(typeof(SVsOutputWindow)) as IVsOutputWindow;
+                if (output == null)
+                {
+                    throw new ArgumentNullException(nameof(output));
+                }
+                output.CreatePane(ref guid, _name, 1, 1);
 				output.GetPane(ref guid, out _pane);
 			}
 
