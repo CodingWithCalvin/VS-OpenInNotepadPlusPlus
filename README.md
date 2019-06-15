@@ -1,6 +1,6 @@
 # Open in Notepad++
 
-[![Build status](https://ci.appveyor.com/api/projects/status/rnror0f1y57ug09b?svg=true)](https://ci.appveyor.com/project/CalvinAllen/openinnotepadplusplus)
+[![Build Status](https://dev.azure.com/calvin-allen/open-in-notepad-plus-plus/_apis/build/status/OpenInNotepadPlusPlus?branchName=master)](https://dev.azure.com/calvin-allen/open-in-notepad-plus-plus/_build/latest?definitionId=2&branchName=master)
 
 A Visual Studio extension that adds a menu command that lets you open any solution, project, folder or file in Notepad++.
 

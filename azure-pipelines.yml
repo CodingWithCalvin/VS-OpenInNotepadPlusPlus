@@ -1,0 +1,37 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-2019'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: '(new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/CalvinAllen/azure-devops-scripts/master/vsix-version-from-build.ps1") | iex
+      
+      Vsix-IncrementVersion'
+
+- task: NuGetToolInstaller@0
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
+
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: PublishVSExtension@1
+  inputs:
+    connectedServiceName: 'Visual Studio Marketplace - CalvinAAllen'
+    vsixFile: './src/bin/$(buildConfiguration)/OpenInNotepadPlusPlus.vsix'
+    manifestFile: './extension.manifest.json'
+    publisherId: 'CalvinAAllen'
