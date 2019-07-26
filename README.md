@@ -1,6 +1,13 @@
 # Open in Notepad++
 
-[![Build Status](https://dev.azure.com/calvin-allen/open-in-notepad-plus-plus/_apis/build/status/OpenInNotepadPlusPlus?branchName=master)](https://dev.azure.com/calvin-allen/open-in-notepad-plus-plus/_build/latest?definitionId=2&branchName=master)
+## Build Status
+[![Azure Pipeline Status](https://img.shields.io/azure-devops/build/calvin-allen/fdb3e58f-4e3e-49f6-b654-72c69d8a0f9e/2/master?style=for-the-badge)](https://img.shields.io/azure-devops/build/calvin-allen/fdb3e58f-4e3e-49f6-b654-72c69d8a0f9e/2/master?style=for-the-badge)
+
+## Marketplace Status
+
+[![Marketplace Installations](https://img.shields.io/visual-studio-marketplace/i/CalvinAAllen.OpenInNotepad?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/i/CalvinAAllen.OpenInNotepad?style=for-the-badge) [![Marketplce Downloads](https://img.shields.io/visual-studio-marketplace/d/CalvinAAllen.OpeninNotepad?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/d/CalvinAAllen.OpeninNotepad?style=for-the-badge)
+
+## Description
 
 A Visual Studio extension that adds a menu command that lets you open any solution, project, folder or file in Notepad++.
 

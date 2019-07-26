@@ -81,8 +81,6 @@
     <Content Include="Resources\LICENSE">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <None Include="extension.manifest.json" />
-    <None Include="README.md" />
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
       <Generator>VsixManifestGenerator</Generator>
