@@ -28,10 +28,3 @@ steps:
     solution: '$(solution)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-
-- task: PublishVSExtension@1
-  inputs:
-    connectedServiceName: 'Visual Studio Marketplace - CalvinAAllen'
-    vsixFile: './src/bin/$(buildConfiguration)/OpenInNotepadPlusPlus.vsix'
-    manifestFile: './extension.manifest.json'
-    publisherId: 'CalvinAAllen'

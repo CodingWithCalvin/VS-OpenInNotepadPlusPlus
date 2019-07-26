@@ -5,7 +5,7 @@
 
 ## Marketplace Status
 
-[![Marketplace Installations](https://img.shields.io/visual-studio-marketplace/i/CalvinAAllen.OpenInNotepad?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/i/CalvinAAllen.OpenInNotepad?style=for-the-badge) [![Marketplce Downloads](https://img.shields.io/visual-studio-marketplace/d/CalvinAAllen.OpeninNotepad?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/d/CalvinAAllen.OpeninNotepad?style=for-the-badge)
+[![Marketplace Installations](https://img.shields.io/visual-studio-marketplace/i/CalvinAAllen.OpenInNotepad?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/i/CalvinAAllen.OpenInNotepad?style=for-the-badge) [![Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/CalvinAAllen.OpeninNotepad?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/d/CalvinAAllen.OpeninNotepad?style=for-the-badge)
 
 ## Description
 
