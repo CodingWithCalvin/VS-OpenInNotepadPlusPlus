@@ -16,9 +16,7 @@
 
 ## Description
 
-A Visual Studio extension that adds a menu command that lets you open any solution, project, folder or file in Notepad++.
-
-This extension is for those times where you have a project open in Visual Studio and you want to be able to quickly open it in Notepad++.
+A Visual Studio extension that adds a right-click context menu command that allows you to open the solution file, project file, or file in Notepad++.
 
 ## Prerequisite
 
@@ -32,7 +30,7 @@ You can open any solution, project, folder or file in Notepad++ by simply right-
 
 ## Settings
 
-The extension will automatically find notepad++.exe when it's located at Notepad++'s default install directory. If it's installed at a custom location, you can easily change it in the settings.
+The extension will automatically find `notepad++.exe` when it's located at in the default install directory. If it's installed in a custom location, you can easily change it in the settings dialog.
 
 ## Contribute
 
