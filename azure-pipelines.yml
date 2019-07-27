@@ -34,7 +34,7 @@ steps:
     configuration: '$(buildConfiguration)'
 
 - task: CopyFiles@2
-  displayName: "5. Copying VSIX"
+  displayName: "5. Copying Build Artifacts"
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)'
     Contents: |
