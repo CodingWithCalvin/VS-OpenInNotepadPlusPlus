@@ -37,7 +37,9 @@ steps:
   displayName: "5. Copying VSIX"
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)'
-    Contents: '**/*.vsix'
+    Contents: |
+      '**/*.vsix'
+      '**/extension.manifest.json'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     CleanTargetFolder: true
 
