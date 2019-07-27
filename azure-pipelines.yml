@@ -11,6 +11,7 @@ variables:
 
 steps:
 - task: PowerShell@2
+  displayName: "1. Increment Version"
   inputs:
     targetType: 'inline'
     script: '(new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/CalvinAllen/azure-devops-scripts/master/vsix-version-from-build.ps1") | iex
@@ -18,18 +19,22 @@ steps:
       Vsix-IncrementVersion'
 
 - task: NuGetToolInstaller@0
+  displayName: "2. Bootstrapping NuGet Installer"
 
 - task: NuGetCommand@2
+  displayName: "3. Restoring Packages"
   inputs:
     restoreSolution: '$(solution)'
 
 - task: VSBuild@1
+  displayName: "4. Building Solution"
   inputs:
     solution: '$(solution)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
 - task: CopyFiles@2
+  displayName: "5. Copying VSIX"
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)'
     Contents: '**/*.vsix'
@@ -37,6 +42,7 @@ steps:
     CleanTargetFolder: true
 
 - task: PublishBuildArtifacts@1
+  displayName: "6. Publishing Build Artifacts"
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
