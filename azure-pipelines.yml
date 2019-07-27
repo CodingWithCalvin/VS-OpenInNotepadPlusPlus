@@ -38,8 +38,8 @@ steps:
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)'
     Contents: |
-      '**/*.vsix'
-      '**/extension.manifest.json'
+      **/*.vsix
+      **/extension.manifest.json
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     CleanTargetFolder: true
 
