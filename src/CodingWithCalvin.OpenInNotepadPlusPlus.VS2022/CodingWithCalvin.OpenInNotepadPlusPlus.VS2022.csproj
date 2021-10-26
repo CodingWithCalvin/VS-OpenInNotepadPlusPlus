@@ -63,9 +63,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\resources\LICENSE">
-      <Link>Resources\LICENSE</Link>
-    </None>
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
       <Generator>VsixManifestGenerator</Generator>
@@ -79,30 +76,39 @@
     <PackageReference Include="Microsoft.CSharp">
       <Version>4.7.0</Version>
     </PackageReference>
-			<PackageReference Include="Microsoft.VisualStudio.SDK">
-          <Version>17.0.0-previews-5-31722-452</Version>
-			</PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.SDK">
+      <Version>17.0.0-previews-4-31709-430</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\resources\Icon.png">
       <Link>Resources\Icon.png</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
+    <Content Include="..\resources\LICENSE.txt">
+      <Link>Resources\LICENSE.txt</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="..\resources\Logo.png">
       <Link>Resources\Logo.png</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <VSCTCompile Include="..\resources\OpenInNotepadPlusPlus.vsct">
+      <ResourceName>Menus.ctmenu</ResourceName>
       <Link>OpenInNotepadPlusPlus.vsct</Link>
-      <LastGenOutput>OpenInNotepadPlusPlus.cs</LastGenOutput>
       <Generator>VsctGenerator</Generator>
+      <LastGenOutput>OpenInNotepadPlusPlus.cs</LastGenOutput>
     </VSCTCompile>
     <Compile Include="..\resources\OpenInNotepadPlusPlus.cs">
+      <Link>OpenInNotepadPlusPlus.cs</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>OpenInNotepadPlusPlus.vsct</DependentUpon>
     </Compile>
     <Content Include="..\resources\Preview.png">
       <Link>Resources\Preview.png</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="source.extension.ico">
       <DependentUpon>source.extension.vsixmanifest</DependentUpon>

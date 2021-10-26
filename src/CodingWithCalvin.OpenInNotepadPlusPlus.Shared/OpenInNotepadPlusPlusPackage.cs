@@ -4,12 +4,13 @@ using System.Threading;
 using CodingWithCalvin.OpenInNotepadPlusPlus.Shared.Commands;
 using CodingWithCalvin.OpenInNotepadPlusPlus.Shared.Helpers;
 using CodingWithCalvin.OpenInNotepadPlusPlus.VS2022;
+using Microsoft.VisualStudio.Shell;
 
 namespace CodingWithCalvin.OpenInNotepadPlusPlus.Shared
 {
 	[PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
 	[InstalledProductRegistration("#110", "#112", "1.1.12", IconResourceID = 400)]
-	[ProvideOptionPage(typeof(Settings), Vsix.Name, "General",101,111, true, new string[0], ProvidesLocalizedCategoryName = false)]
+	[ProvideOptionPage(typeof(SettingsDialogPage), Vsix.Name, "General",101,111, true, new string[0], ProvidesLocalizedCategoryName = false)]
 	[ProvideMenuResource("Menus.ctmenu", 1)]
 	[Guid(PackageGuids.guidPackageString)]
 	public sealed class OpenInNotepadPlusPlusPackage : AsyncPackage

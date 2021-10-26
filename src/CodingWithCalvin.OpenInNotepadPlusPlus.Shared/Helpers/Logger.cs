@@ -10,7 +10,7 @@ namespace CodingWithCalvin.OpenInNotepadPlusPlus.Shared.Helpers
 		private static IServiceProvider _provider;
 		private static string _name;
 
-		public static void Initialize(OpenInNotepadPlusPlusPackage provider, string name)
+		public static void Initialize(AsyncPackage provider, string name)
 		{
 			_provider = provider;
 			_name = name;
@@ -31,7 +31,7 @@ namespace CodingWithCalvin.OpenInNotepadPlusPlus.Shared.Helpers
 				}
                 ThreadHelper.ThrowIfNotOnUIThread();
 
-				_pane.OutputString(DateTime.Now + ": " + message + Environment.NewLine);
+				_pane.OutputStringThreadSafe(DateTime.Now + ": " + message + Environment.NewLine);
 			}
 			catch (Exception ex)
 			{

@@ -5,16 +5,17 @@ using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Windows.Forms;
 using Microsoft.VisualStudio.Shell;
-
+using EnvDTE80;
+using EnvDTE;
 
 namespace CodingWithCalvin.OpenInNotepadPlusPlus.Shared.Commands
 {
 	internal sealed class OpenExecutableCommand
 	{
 		private readonly Package _package;
-	    private readonly Settings _settings;
+	    private readonly SettingsDialogPage _settings;
 
-		private OpenExecutableCommand(Package package, Settings settings)
+		private OpenExecutableCommand(Package package, SettingsDialogPage settings)
 		{
 			this._package = package;
 		    this._settings = settings;
@@ -33,7 +34,7 @@ namespace CodingWithCalvin.OpenInNotepadPlusPlus.Shared.Commands
 
 		private IServiceProvider ServiceProvider => this._package;
 
-		public static void Initialize(Package package, Settings settings)
+		public static void Initialize(Package package, SettingsDialogPage settings)
 		{
 			Instance = new OpenExecutableCommand(package, settings);
 		}

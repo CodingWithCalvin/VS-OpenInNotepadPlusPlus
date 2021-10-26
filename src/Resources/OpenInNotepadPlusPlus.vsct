@@ -16,7 +16,7 @@
 		</Buttons>
 
 		<Bitmaps>
-			<Bitmap guid="guidIcons" usedList="NotepadPlusPlus" href="../resources/logo.png" />
+			<Bitmap guid="guidIcons" usedList="NotepadPlusPlus" href="../resources/Logo.png" />
 		</Bitmaps>
 	</Commands>
 
