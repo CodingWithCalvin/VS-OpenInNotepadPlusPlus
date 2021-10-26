@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 
-namespace OpenInNotepadPlusPlus.Helpers
+namespace CodingWithCalvin.OpenInNotepadPlusPlus.Shared.Helpers
 {
 	public static class Logger
 	{
@@ -10,7 +10,7 @@ namespace OpenInNotepadPlusPlus.Helpers
 		private static IServiceProvider _provider;
 		private static string _name;
 
-		public static void Initialize(Package provider, string name)
+		public static void Initialize(OpenInNotepadPlusPlusPackage provider, string name)
 		{
 			_provider = provider;
 			_name = name;

@@ -5,13 +5,15 @@
         <DisplayName>Open in Notepad++</DisplayName>
         <Description xml:space="preserve">Adds a menu command that lets you open any solution, project, folder and file in Notepad++</Description>
         <MoreInfo>https://github.com/CalvinAllen/OpenInNotepadPlusPlus</MoreInfo>
-        <License>Resources\LICENSE</License>
-        <Icon>Resources\Icon.png</Icon>
-        <PreviewImage>Resources\Preview.png</PreviewImage>
+        <License>..\resources\LICENSE</License>
+        <Icon>..\resources\Icon.png</Icon>
+        <PreviewImage>..\resources\Preview.png</PreviewImage>
         <Tags>notepad++, text, code</Tags>
     </Metadata>
     <Installation>
-        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[14.0,17.0)" />
+        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,18.0)">
+            <ProductArchitecture>amd64</ProductArchitecture>
+        </InstallationTarget>
     </Installation>
     <Dependencies>
     </Dependencies>
@@ -19,6 +21,6 @@
         <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
     </Assets>
     <Prerequisites>
-        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,)" DisplayName="Visual Studio core editor" />
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,)" DisplayName="Visual Studio core editor" />
     </Prerequisites>
 </PackageManifest>

@@ -1,7 +1,6 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
-using OpenInNotepadPlusPlus;
-
+using CodingWithCalvin.OpenInNotepadPlusPlus.VS2022;
 
 [assembly: AssemblyTitle(Vsix.Name)]
 [assembly: AssemblyDescription(Vsix.Description)]

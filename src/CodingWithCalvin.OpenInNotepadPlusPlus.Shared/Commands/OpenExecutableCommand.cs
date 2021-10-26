@@ -1,21 +1,20 @@
-﻿using System;
+﻿using CodingWithCalvin.OpenInNotepadPlusPlus.Shared.Helpers;
+using CodingWithCalvin.OpenInNotepadPlusPlus.VS2022;
+using System;
 using System.ComponentModel.Design;
 using System.Diagnostics;
-using System.IO;
 using System.Windows.Forms;
-using EnvDTE;
-using EnvDTE80;
 using Microsoft.VisualStudio.Shell;
-using OpenInNotepadPlusPlus.Helpers;
 
-namespace OpenInNotepadPlusPlus.Commands
+
+namespace CodingWithCalvin.OpenInNotepadPlusPlus.Shared.Commands
 {
-	internal sealed class OpenNotepadPlusPlusCommand
+	internal sealed class OpenExecutableCommand
 	{
 		private readonly Package _package;
 	    private readonly Settings _settings;
 
-		private OpenNotepadPlusPlusCommand(Package package, Settings settings)
+		private OpenExecutableCommand(Package package, Settings settings)
 		{
 			this._package = package;
 		    this._settings = settings;
@@ -30,13 +29,13 @@ namespace OpenInNotepadPlusPlus.Commands
 		    }
         }
 
-		public static OpenNotepadPlusPlusCommand Instance { get; private set; }
+		public static OpenExecutableCommand Instance { get; private set; }
 
 		private IServiceProvider ServiceProvider => this._package;
 
 		public static void Initialize(Package package, Settings settings)
 		{
-			Instance = new OpenNotepadPlusPlusCommand(package, settings);
+			Instance = new OpenExecutableCommand(package, settings);
 		}
 
 		private void OpenPath(object sender, EventArgs e)

@@ -4,9 +4,9 @@ using System.IO;
 using System.Linq;
 using Microsoft.VisualStudio.Shell;
 
-namespace OpenInNotepadPlusPlus
+namespace CodingWithCalvin.OpenInNotepadPlusPlus.Shared
 {
-	public class Settings : DialogPage
+	public class SettingsDialogPage : DialogPage
 	{
 		[Category("General")]
 		[DisplayName("Install path")]
