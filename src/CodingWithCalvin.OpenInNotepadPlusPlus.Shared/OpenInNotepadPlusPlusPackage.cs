@@ -3,8 +3,8 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using CodingWithCalvin.OpenInNotepadPlusPlus.Shared.Commands;
 using CodingWithCalvin.OpenInNotepadPlusPlus.Shared.Helpers;
-using CodingWithCalvin.OpenInNotepadPlusPlus.VS2022;
 using Microsoft.VisualStudio.Shell;
+
 
 namespace CodingWithCalvin.OpenInNotepadPlusPlus.Shared
 {

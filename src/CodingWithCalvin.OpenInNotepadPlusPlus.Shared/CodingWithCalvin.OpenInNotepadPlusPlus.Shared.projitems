@@ -9,13 +9,19 @@
     <Import_RootNamespace>CodingWithCalvin.OpenInNotepadPlusPlus.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AssemblyInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Commands\OpenExecutableCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\Logger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\ProjectHelpers.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OpenInNotepadPlusPlus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SettingsDialogPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)OpenInNotepadPlusPlusPackage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)source.extension.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Commands\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)source.extension.ico" />
   </ItemGroup>
 </Project>

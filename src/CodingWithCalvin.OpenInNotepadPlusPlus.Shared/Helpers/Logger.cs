@@ -10,7 +10,7 @@ namespace CodingWithCalvin.OpenInNotepadPlusPlus.Shared.Helpers
 		private static IServiceProvider _provider;
 		private static string _name;
 
-		public static void Initialize(AsyncPackage provider, string name)
+		public static void Initialize(Package provider, string name)
 		{
 			_provider = provider;
 			_name = name;

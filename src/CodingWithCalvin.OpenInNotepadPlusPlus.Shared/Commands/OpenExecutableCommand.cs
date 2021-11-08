@@ -1,12 +1,11 @@
 ﻿using CodingWithCalvin.OpenInNotepadPlusPlus.Shared.Helpers;
-using CodingWithCalvin.OpenInNotepadPlusPlus.VS2022;
 using System;
 using System.ComponentModel.Design;
 using System.Diagnostics;
-using System.Windows.Forms;
 using Microsoft.VisualStudio.Shell;
 using EnvDTE80;
 using EnvDTE;
+using System.Windows.Forms;
 
 namespace CodingWithCalvin.OpenInNotepadPlusPlus.Shared.Commands
 {
@@ -49,7 +48,7 @@ namespace CodingWithCalvin.OpenInNotepadPlusPlus.Shared.Commands
 				var executablePath = _settings.FolderPath;
 				if (!string.IsNullOrEmpty(selectedFilePath) && !string.IsNullOrEmpty(executablePath))
 				{
-					OpenNotepadPlusPlus(executablePath, selectedFilePath);
+					OpenExecutable(executablePath, selectedFilePath);
 				}
 				else
 				{
@@ -62,7 +61,7 @@ namespace CodingWithCalvin.OpenInNotepadPlusPlus.Shared.Commands
 			}
 		}
 
-		private static void OpenNotepadPlusPlus(string executablePath, string selectedFilePath)
+		private static void OpenExecutable(string executablePath, string selectedFilePath)
 		{
 			var startInfo = new ProcessStartInfo
 			{
