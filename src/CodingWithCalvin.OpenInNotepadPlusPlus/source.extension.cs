@@ -7,7 +7,7 @@ namespace CodingWithCalvin.OpenInNotepadPlusPlus
 {
     internal sealed partial class Vsix
     {
-        public const string Id = "E476F42B-1D6C-4C78-B56B-42CF7366D5E0";
+        public const string Id = "632D1945-FEE3-4C1C-846D-211947EA8F3D";
         public const string Name = "Open in Notepad++";
         public const string Description = @"Adds a menu command that lets you open any solution, project, folder and file in Notepad++";
         public const string Language = "en-US";
