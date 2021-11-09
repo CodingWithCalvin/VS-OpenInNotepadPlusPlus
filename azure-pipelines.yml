@@ -16,7 +16,7 @@ steps:
     targetType: 'inline'
     script: '(new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/CalvinAllen/azure-devops-scripts/master/vsix-version-from-build.ps1") | iex
       
-      Vsix-IncrementVersion'
+      Vsix-IncrementVersion -manifestFile "./src/CodingWithCalvin.OpenInNotepadPlusPlus/source.extension.vsixmanifest" -extensionSourceFile "./src/CodingWithCalvin.OpenInNotepadPlusPlus/source.extension.cs"'
 
 - task: NuGetToolInstaller@0
   displayName: "2. Bootstrapping NuGet Installer"
