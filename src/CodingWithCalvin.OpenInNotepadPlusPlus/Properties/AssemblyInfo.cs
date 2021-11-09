@@ -1,4 +1,4 @@
-﻿using CodingWithCalvin.OpenInNotepadPlusPlus.Shared;
+﻿using CodingWithCalvin.OpenInNotepadPlusPlus;
 using System.Reflection;
 using System.Runtime.InteropServices;
 

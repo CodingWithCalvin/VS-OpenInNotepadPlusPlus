@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 
-namespace CodingWithCalvin.OpenInNotepadPlusPlus.Shared.Helpers
+namespace CodingWithCalvin.OpenInNotepadPlusPlus.Helpers
 {
 	public static class Logger
 	{

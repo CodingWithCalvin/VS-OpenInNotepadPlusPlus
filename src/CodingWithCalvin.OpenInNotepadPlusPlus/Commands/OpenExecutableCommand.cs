@@ -1,13 +1,13 @@
-﻿using CodingWithCalvin.OpenInNotepadPlusPlus.Shared.Helpers;
-using System;
+﻿using System;
 using System.ComponentModel.Design;
 using System.Diagnostics;
 using Microsoft.VisualStudio.Shell;
 using EnvDTE80;
 using EnvDTE;
 using System.Windows.Forms;
+using CodingWithCalvin.OpenInNotepadPlusPlus.Helpers;
 
-namespace CodingWithCalvin.OpenInNotepadPlusPlus.Shared.Commands
+namespace CodingWithCalvin.OpenInNotepadPlusPlus.Commands
 {
 	internal sealed class OpenExecutableCommand
 	{

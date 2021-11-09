@@ -1,14 +1,14 @@
-﻿using System;
+﻿using CodingWithCalvin.OpenInNotepadPlusPlus.Commands;
+using CodingWithCalvin.OpenInNotepadPlusPlus.Helpers;
+using Microsoft.VisualStudio.Shell;
+using System;
 using System.Runtime.InteropServices;
 using System.Threading;
-using CodingWithCalvin.OpenInNotepadPlusPlus.Shared.Commands;
-using CodingWithCalvin.OpenInNotepadPlusPlus.Shared.Helpers;
-using Microsoft.VisualStudio.Shell;
 
 
-namespace CodingWithCalvin.OpenInNotepadPlusPlus.Shared
+namespace CodingWithCalvin.OpenInNotepadPlusPlus
 {
-	[PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
+    [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
 	[InstalledProductRegistration("#110", "#112", "1.1.12", IconResourceID = 400)]
 	[ProvideOptionPage(typeof(SettingsDialogPage), Vsix.Name, "General",101,111, true, new string[0], ProvidesLocalizedCategoryName = false)]
 	[ProvideMenuResource("Menus.ctmenu", 1)]
