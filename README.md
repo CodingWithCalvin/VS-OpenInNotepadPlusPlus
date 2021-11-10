@@ -4,7 +4,7 @@
 [![License - MIT](https://img.shields.io/github/license/calvinallen/OpenInNotepadPlusPlus?style=for-the-badge)](https://img.shields.io/github/license/calvinallen/OpenInNotepadPlusPlus?style=for-the-badge)
 
 ## Build Status
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/CalvinAllen/OpenInNotepadPlusPlus/release_build_and_deploy?logo=github&style=for-the-badge)](https://img.shields.io/github/workflow/status/CalvinAllen/OpenInNotepadPlusPlus/release_build_and_deploy?logo=github&style=for-the-badge))
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/CalvinAllen/OpenInNotepadPlusPlus/release_build_and_deploy?logo=github&style=for-the-badge)](https://img.shields.io/github/workflow/status/CalvinAllen/OpenInNotepadPlusPlus/release_build_and_deploy?logo=github&style=for-the-badge)
 
 ## Marketplace Status
 
