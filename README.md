@@ -1,15 +1,18 @@
 # Open in Notepad++
 
 ## License
-![License - MIT](https://img.shields.io/github/license/calvinallen/OpenInNotepadPlusPlus?style=for-the-badge)
+[![License - MIT](https://img.shields.io/github/license/calvinallen/OpenInNotepadPlusPlus?style=for-the-badge)](https://img.shields.io/github/license/calvinallen/OpenInNotepadPlusPlus?style=for-the-badge)
 
 ## Build Status
+[![Azure Pipeline Status](https://img.shields.io/azure-devops/build/calvin-allen/fdb3e58f-4e3e-49f6-b654-72c69d8a0f9e/2/master?style=for-the-badge&logo=azuredevops)](https://img.shields.io/azure-devops/build/calvin-allen/fdb3e58f-4e3e-49f6-b654-72c69d8a0f9e/2/master?style=for-the-badge&logo=azuredevops)
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/CalvinAllen/OpenInNotepadPlusPlus/release_build_and_deploy?logo=github&style=for-the-badge)
+## Deployment Status
+[![Azure Deployment Status](https://img.shields.io/azure-devops/release/calvin-allen/fdb3e58f-4e3e-49f6-b654-72c69d8a0f9e/2/2?style=for-the-badge&logo=azuredevops)](https://img.shields.io/azure-devops/release/calvin-allen/fdb3e58f-4e3e-49f6-b654-72c69d8a0f9e/2/2?style=for-the-badge&logo=azuredevops)
 
 ## Marketplace Status
 
-![Marketplace Installations](https://img.shields.io/visual-studio-marketplace/i/CalvinAAllen.OpenInNotepad?style=for-the-badge) ![Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/CalvinAAllen.OpeninNotepad?style=for-the-badge) ![Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/CalvinAAllen.OpeninNotepad?style=for-the-badge) ![Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/CalvinAAllen.OpeninNotepad?style=for-the-badge)
+[![Marketplace Installations](https://img.shields.io/visual-studio-marketplace/i/CalvinAAllen.OpenInNotepad?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/i/CalvinAAllen.OpenInNotepad?style=for-the-badge) [![Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/CalvinAAllen.OpeninNotepad?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/d/CalvinAAllen.OpeninNotepad?style=for-the-badge)
+[![Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/CalvinAAllen.OpeninNotepad?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/v/CalvinAAllen.OpeninNotepad?style=for-the-badge) [![Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/CalvinAAllen.OpeninNotepad?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/r/CalvinAAllen.OpeninNotepad?style=for-the-badge)
 
 ## Description
 
