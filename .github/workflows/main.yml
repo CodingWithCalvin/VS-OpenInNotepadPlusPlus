@@ -10,7 +10,7 @@ env:
   buildConfiguration: 'Release'
   
 jobs:
-  build:
+  Release-Build: 
     runs-on: windows-2019
     
     steps:
