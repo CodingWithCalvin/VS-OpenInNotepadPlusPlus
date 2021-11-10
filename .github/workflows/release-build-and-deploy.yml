@@ -2,15 +2,15 @@ name: 'Open In Notepad++ - VS Legacy'
   
 on:
   push:
-    branches:
-    - master
+    tags: releases/[1-9]+.[0-9]+.[0-9]+
+    branches: master
 env:
   solution: 'OpenInNotepadPlusPlus.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   
 jobs:
-  Release-Build: 
+  Release-Build-and-Deploy: 
     runs-on: windows-2019
     
     steps:
@@ -31,17 +31,19 @@ jobs:
     
     - name: 4. Building Solution
       run: msbuild '${{ env.solution }}' /p:configuration='${{ env.buildConfiguration }}' /p:platform='${{ env.buildPlatform }}'
-    
+
     - name: 5. Copying Build Artifacts
+      if: startsWith( github.ref, 'refs/tags/releases/')
       run: |
         Copy '${{ github.workspace }}/**/*.vsix
         **/extension.manifest.json
         **/README.md
         ' '${{ github.workspace }}'
-    
-    - name: 6. Publishing Build Artifacts
-      uses: actions/upload-artifact@v2
+        
+    - name: 6. Publish Release to Marketplace
+      if: startsWith( github.ref, 'refs/tags/releases/')
+      uses: cezarypiatek/VsixPublisherAction@0.2
       with:
-        path: ${{ github.workspace }}
-        name: drop
-                    
+         extension-file: '{{ github.workspace }}/*.vsix'
+         publish-manifest-file: '{{ github.workspace }}/extension.manifest.json'
+         personal-access-code: '${{ secrets.VS_MARKETPLACE_PAT }}'             
