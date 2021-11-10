@@ -20,7 +20,7 @@ jobs:
     - name: 1. Increment Version
       run: |
         (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/CalvinAllen/azure-devops-scripts/master/vsix-version-from-build.ps1") | iex
-        Vsix-IncrementVersion -azureBuildNumber ${{ github.run_number }}
+        Vsix-IncrementVersion -BuildNumber ${{ github.run_number }}
       shell: powershell
     
     - name: 2. Bootstrapping NuGet Installer
