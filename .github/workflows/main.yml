@@ -1,0 +1,39 @@
+name: Open In Notepad++ - VS Legacy
+  
+on:
+  push:
+    branches:
+    - master
+env:
+  solution: '**/*.sln'
+  buildPlatform: Any CPU
+  buildConfiguration: Release
+jobs:
+  build:
+    runs-on: windows-2019
+    steps:
+    - uses: actions/checkout@v2
+    - uses: microsoft/setup-msbuild@v1.0.2
+    - name: 1. Increment Version
+      run: |
+        (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/CalvinAllen/azure-devops-scripts/master/vsix-version-from-build.ps1") | iex
+        Vsix-IncrementVersion
+      shell: powershell
+    - name: 2. Bootstrapping NuGet Installer
+      uses: nuget/setup-nuget@v1
+    - name: 3. Restoring Packages
+      run: nuget restore ${{ env.solution }}
+    - name: 4. Building Solution
+      run: msbuild '${{ env.solution }}' /p:configuration='${{ env.buildConfiguration }}' /p:platform='${{ env.buildPlatform }}'
+    - name: 5. Copying Build Artifacts
+      run: |
+        Copy '${{ github.workspace }}/**/*.vsix
+        **/extension.manifest.json
+        **/README.md
+        ' '${{ github.workspace }}'
+    - name: 6. Publishing Build Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        path: ${{ github.workspace }}
+        name: drop
+                    
