@@ -1,13 +1,13 @@
-name: Open In Notepad++ - VS Legacy
+name: 'Open In Notepad++ - VS Legacy'
   
 on:
   push:
     branches:
     - master
 env:
-  solution: '**/*.sln'
-  buildPlatform: Any CPU
-  buildConfiguration: Release
+  solution: 'OpenInNotepadPlusPlus.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
   
 jobs:
   build:
