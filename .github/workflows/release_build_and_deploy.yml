@@ -2,7 +2,7 @@ name: 'Open In Notepad++ - VS Legacy'
   
 on:
   push:
-    tags: releases/[1-9]{1,4}+.[0-9]{1,2}+.[0-9]{1,2}+
+    tags: releases/\d{1,4}+.\d{1,2}+.\d{1,2}+
     branches: master
 env:
   solution: './src/CodingWithCalvin.OpenInNotepadPlusPlus.sln'
