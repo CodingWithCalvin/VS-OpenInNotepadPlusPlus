@@ -36,12 +36,10 @@ jobs:
       run: msbuild '${{ env.solution }}' /p:configuration='${{ env.buildConfiguration }}' /p:platform='${{ env.buildPlatform }}'
 
     - name: 5. Copying Build Artifacts
-      if: startsWith( github.ref, 'refs/tags/releases/')
       run: |
         copy '${{ github.workspace }}\src\CodingWithCalvin.OpenInNotepadPlusPlus\bin\Release\CodingWithCalvin.OpenInNotepadPlusPlus.vsix' '${{ github.workspace }}'
         
     - name: 6. Publishing Build Artifacts
-      if: startsWith( github.ref, 'refs/tags/releases/')
       uses: actions/upload-artifact@v2
       with:
         path: '${{ github.workspace }}/CodingWithCalvin.OpenInNotepadPlusPlus.vsix'
