@@ -4,10 +4,7 @@
 [![License - MIT](https://img.shields.io/github/license/calvinallen/OpenInNotepadPlusPlus?style=for-the-badge)](https://img.shields.io/github/license/calvinallen/OpenInNotepadPlusPlus?style=for-the-badge)
 
 ## Build Status
-[![Azure Pipeline Status](https://img.shields.io/azure-devops/build/calvin-allen/fdb3e58f-4e3e-49f6-b654-72c69d8a0f9e/2/master?style=for-the-badge&logo=azuredevops)](https://img.shields.io/azure-devops/build/calvin-allen/fdb3e58f-4e3e-49f6-b654-72c69d8a0f9e/2/master?style=for-the-badge&logo=azuredevops)
-
-## Deployment Status
-[![Azure Deployment Status](https://img.shields.io/azure-devops/release/calvin-allen/fdb3e58f-4e3e-49f6-b654-72c69d8a0f9e/2/2?style=for-the-badge&logo=azuredevops)](https://img.shields.io/azure-devops/release/calvin-allen/fdb3e58f-4e3e-49f6-b654-72c69d8a0f9e/2/2?style=for-the-badge&logo=azuredevops)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/CalvinAllen/OpenInNotepadPlusPlus/Open%20In%20Notepad%2B%2B%20-%20VS%20Legacy?logo=github&style=for-the-badge)](https://img.shields.io/github/workflow/status/CalvinAllen/OpenInNotepadPlusPlus/Open%20In%20Notepad%2B%2B%20-%20VS%20Legacy?logo=github&style=for-the-badge)
 
 ## Marketplace Status
 
