@@ -16,7 +16,7 @@
 		</Buttons>
 
 		<Bitmaps>
-			<Bitmap guid="guidIcons" usedList="NotepadPlusPlus" href="Resources/logo.png" />
+			<Bitmap guid="guidIcons" usedList="NotepadPlusPlus" href="Resources/Logo.png" />
 		</Bitmaps>
 	</Commands>
 
@@ -34,13 +34,13 @@
 
 	<Symbols>
 		<!-- This is the package guid. -->
-		<GuidSymbol name="guidPackage" value="{a8d3f4b6-cd76-47ab-a0dc-4e42869cea9b}" />
+		<GuidSymbol name="guidPackage" value="{6AEABF47-7BDC-47B3-ADE7-06F5BAE6D868}" />
 
-		<GuidSymbol name="guidOpenInNppCmdSet" value="{f5e04065-ce59-4638-a312-e6eb6cc73dbc}">
+		<GuidSymbol name="guidOpenInNppCmdSet" value="{F781199D-54A8-4A18-AC9D-A91F292587DB}">
 			<IDSymbol name="OpenInNpp" value="0x0100" />
 		</GuidSymbol>
 
-		<GuidSymbol name="guidIcons" value="{f5e04065-ce59-4638-a312-e6eb6cc73dbd}">
+		<GuidSymbol name="guidIcons" value="{3A06FDE0-497F-4B1F-9150-5B1C5879E8AF}">
 			<IDSymbol name="NotepadPlusPlus" value="1" />
 		</GuidSymbol>
 	</Symbols>

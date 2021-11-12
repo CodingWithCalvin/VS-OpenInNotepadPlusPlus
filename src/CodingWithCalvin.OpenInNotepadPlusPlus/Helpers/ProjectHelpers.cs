@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Reflection;
 using EnvDTE;
 using EnvDTE80;
 using Microsoft.VisualStudio.Shell;
 
-namespace OpenInNotepadPlusPlus.Helpers
+namespace CodingWithCalvin.OpenInNotepadPlusPlus.Helpers
 {
 	internal static class ProjectHelpers
 	{

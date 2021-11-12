@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 
-namespace OpenInNotepadPlusPlus.Helpers
+namespace CodingWithCalvin.OpenInNotepadPlusPlus.Helpers
 {
 	public static class Logger
 	{
@@ -31,7 +31,7 @@ namespace OpenInNotepadPlusPlus.Helpers
 				}
                 ThreadHelper.ThrowIfNotOnUIThread();
 
-				_pane.OutputString(DateTime.Now + ": " + message + Environment.NewLine);
+				_pane.OutputStringThreadSafe(DateTime.Now + ": " + message + Environment.NewLine);
 			}
 			catch (Exception ex)
 			{
