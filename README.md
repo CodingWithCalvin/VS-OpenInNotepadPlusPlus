@@ -17,7 +17,7 @@ A Visual Studio extension that adds a right-click context menu command that allo
 
 ## Prerequisite
 
-In order to use this extension, you must have Visual Studio 2015, 2017, or 2019, as well as Notepad++ installed.
+In order to use this extension, you must have Visual Studio 2017, 2019, or 2022, as well as Notepad++ installed.
 
 You can [download Notepad++ for free](https://notepad-plus-plus.org/).
 

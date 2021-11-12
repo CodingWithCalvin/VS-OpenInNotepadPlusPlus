@@ -40,7 +40,14 @@ jobs:
       run: |
         copy '${{ github.workspace }}\src\CodingWithCalvin.OpenInNotepadPlusPlus\bin\Release\CodingWithCalvin.OpenInNotepadPlusPlus.vsix' '${{ github.workspace }}'
         
-    - name: 6. Publish Release to Marketplace
+    - name: 6. Publishing Build Artifacts
+      if: startsWith( github.ref, 'refs/tags/releases/')
+      uses: actions/upload-artifact@v2
+      with:
+        path: '${{ github.workspace }}/CodingWithCalvin.OpenInNotepadPlusPlus.vsix'
+        name: latest
+
+    - name: 7. Publish Release to Marketplace
       if: startsWith( github.ref, 'refs/tags/releases/')
       uses: cezarypiatek/VsixPublisherAction@0.2
       with:
