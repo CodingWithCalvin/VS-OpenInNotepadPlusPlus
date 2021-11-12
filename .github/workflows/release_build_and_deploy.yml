@@ -39,8 +39,6 @@ jobs:
       if: startsWith( github.ref, 'refs/tags/releases/')
       run: |
         copy '${{ github.workspace }}\src\CodingWithCalvin.OpenInNotepadPlusPlus\bin\Release\CodingWithCalvin.OpenInNotepadPlusPlus.vsix' '${{ github.workspace }}'
-        copy '${{ github.workspace }}\extension.manifest.json' '${{ github.workspace }}'
-        copy '${{ github.workspace }}\README.me' '${{ github.workspace }}'
         
     - name: 6. Publish Release to Marketplace
       if: startsWith( github.ref, 'refs/tags/releases/')
