@@ -1,4 +1,4 @@
-name: 'Open In Notepad++ - VS Legacy'
+name: 'Build and Deploy'
   
 on:
   push:
