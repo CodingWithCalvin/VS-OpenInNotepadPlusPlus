@@ -38,15 +38,14 @@ jobs:
     - name: 5. Copying Build Artifacts
       if: startsWith( github.ref, 'refs/tags/releases/')
       run: |
-        Copy '${{ github.workspace }}/**/*.vsix
-        **/extension.manifest.json
-        **/README.md
-        ' '${{ github.workspace }}'
+        copy '${{ github.workspace }}\src\CodingWithCalvin.OpenInNotepadPlusPlus\bin\Release\CodingWithCalvin.OpenInNotepadPlusPlus.vsix' '${{ github.workspace }}'
+        copy '${{ github.workspace }}\extension.manifest.json' '${{ github.workspace }}'
+        copy '${{ github.workspace }}\README.me' '${{ github.workspace }}'
         
     - name: 6. Publish Release to Marketplace
       if: startsWith( github.ref, 'refs/tags/releases/')
       uses: cezarypiatek/VsixPublisherAction@0.2
       with:
-         extension-file: '${{ github.workspace }}/*.vsix'
+         extension-file: '${{ github.workspace }}/CodingWithCalvin.OpenInNotepadPlusPlus.vsix'
          publish-manifest-file: '${{ github.workspace }}/extension.manifest.json'
          personal-access-code: '${{ secrets.VS_MARKETPLACE_PAT }}'             
