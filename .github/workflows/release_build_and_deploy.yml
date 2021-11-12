@@ -20,7 +20,10 @@ jobs:
     - name: 1. Increment Version
       run: |
         (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/CalvinAllen/devops-scripts/master/gh-actions-set-vsix-version.ps1") | iex
-        Vsix-IncrementVersion -BuildNumber ${{ github.run_number }}
+        Vsix-IncrementVersion `
+            -BuildNumber ${{ github.run_number }} `
+            -manifestFile './src/CodingWithCalvin.OpenInNotepadPlusPlus/source.extension.vsixmanifest' `
+            -extensionSourceFile './src/CodingWithCalvin.OpenInNotepadPlusPlus/source.extension.cs'
       shell: powershell
     
     - name: 2. Bootstrapping NuGet Installer
