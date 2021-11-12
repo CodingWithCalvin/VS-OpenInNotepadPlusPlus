@@ -47,6 +47,6 @@ jobs:
       if: startsWith( github.ref, 'refs/tags/releases/')
       uses: cezarypiatek/VsixPublisherAction@0.2
       with:
-         extension-file: '{{ github.workspace }}/*.vsix'
-         publish-manifest-file: '{{ github.workspace }}/extension.manifest.json'
+         extension-file: '${{ github.workspace }}/*.vsix'
+         publish-manifest-file: '${{ github.workspace }}/extension.manifest.json'
          personal-access-code: '${{ secrets.VS_MARKETPLACE_PAT }}'             
