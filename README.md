@@ -1,5 +1,9 @@
 # Open in Notepad++ -- 2022 Edition
 
+## Older Edition?
+
+If you're looking for a version of this extension that works with Visual Studio 2015, 2017, or 2019, please go to [https://marketplace.visualstudio.com/items?itemName=CalvinAAllen.OpeninNotepad](https://marketplace.visualstudio.com/items?itemName=CalvinAAllen.OpeninNotepad)
+
 ## License
 
 [![License - MIT](https://img.shields.io/github/license/calvinallen/OpenInNotepadPlusPlus?style=for-the-badge)](https://img.shields.io/github/license/calvinallen/OpenInNotepadPlusPlus?style=for-the-badge)
@@ -10,8 +14,8 @@
 
 ## Marketplace Status
 
-[![Marketplace Installations](https://img.shields.io/visual-studio-marketplace/i/CalvinAAllen.OpenInNotepad?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/i/CalvinAAllen.OpenInNotepad?style=for-the-badge) [![Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/CalvinAAllen.OpeninNotepad?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/d/CalvinAAllen.OpeninNotepad?style=for-the-badge)
-[![Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/CalvinAAllen.OpeninNotepad?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/v/CalvinAAllen.OpeninNotepad?style=for-the-badge) [![Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/CalvinAAllen.OpeninNotepad?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/r/CalvinAAllen.OpeninNotepad?style=for-the-badge)
+[![Marketplace Installations](https://img.shields.io/visual-studio-marketplace/i/CalvinAAllen.OpenInNotepadPP2022?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/i/CalvinAAllen.OpenInNotepadPP2022?style=for-the-badge) [![Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/CalvinAAllen.OpenInNotepadPP2022?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/d/CalvinAAllen.OpenInNotepadPP2022?style=for-the-badge)
+[![Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/CalvinAAllen.OpenInNotepadPP2022?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/v/CalvinAAllen.OpenInNotepadPP2022?style=for-the-badge) [![Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/CalvinAAllen.OpenInNotepadPP2022?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/r/CalvinAAllen.OpenInNotepadPP2022?style=for-the-badge)
 
 ## Description
 
