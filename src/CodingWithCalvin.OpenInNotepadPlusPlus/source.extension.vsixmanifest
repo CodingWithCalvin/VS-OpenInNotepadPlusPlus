@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="E476F42B-1D6C-4C78-B56B-42CF7366D5E0" Version="4.1.0" Language="en-US" Publisher="Calvin A. Allen" />
+        <Identity Id="C7A8F218-C175-44F5-97A0-8C2C88FBA176" Version="4.1.0" Language="en-US" Publisher="Calvin A. Allen" />
         <DisplayName>Open in Notepad++</DisplayName>
         <Description xml:space="preserve">Adds a menu command that lets you open any solution, project, folder and file in Notepad++</Description>
         <MoreInfo>https://github.com/CalvinAllen/OpenInNotepadPlusPlus</MoreInfo>
@@ -11,8 +11,8 @@
         <Tags>notepad++, text, code</Tags>
     </Metadata>
     <Installation>
-        <InstallationTarget Version="[15.0,17.0)" Id="Microsoft.VisualStudio.Community">
-            <ProductArchitecture>x86</ProductArchitecture>
+        <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Community">
+            <ProductArchitecture>amd64</ProductArchitecture>
         </InstallationTarget>
     </Installation>
     <Dependencies>
@@ -21,6 +21,6 @@
         <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
     </Assets>
     <Prerequisites>
-        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,)" DisplayName="Visual Studio core editor" />
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,)" DisplayName="Visual Studio core editor" />
     </Prerequisites>
 </PackageManifest>

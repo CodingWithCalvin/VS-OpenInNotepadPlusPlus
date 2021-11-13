@@ -1,10 +1,12 @@
-# Open in Notepad++
+# Open in Notepad++ -- 2022 Edition
 
 ## License
+
 [![License - MIT](https://img.shields.io/github/license/calvinallen/OpenInNotepadPlusPlus?style=for-the-badge)](https://img.shields.io/github/license/calvinallen/OpenInNotepadPlusPlus?style=for-the-badge)
 
 ## Build Status
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/CalvinAllen/OpenInNotepadPlusPlus/Build%20and%20Deploy?logo=github&style=for-the-badge)](https://img.shields.io/github/workflow/status/CalvinAllen/OpenInNotepadPlusPlus/Build%20and%20Deploy?logo=github&style=for-the-badge)
+
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/CalvinAllen/OpenInNotepadPlusPlus/Build%20and%20Deploy%20VS2022?logo=github&style=for-the-badge)](https://img.shields.io/github/workflow/status/CalvinAllen/OpenInNotepadPlusPlus/Build%20and%20Deploy%20VS2022?logo=github&style=for-the-badge)
 
 ## Marketplace Status
 
@@ -17,7 +19,7 @@ A Visual Studio extension that adds a right-click context menu command that allo
 
 ## Prerequisite
 
-In order to use this extension, you must have Visual Studio 2017, 2019, or 2022, as well as Notepad++ installed.
+In order to use this extension, you must have Visual Studio 2022, as well as Notepad++ installed.
 
 You can [download Notepad++ for free](https://notepad-plus-plus.org/).
 
