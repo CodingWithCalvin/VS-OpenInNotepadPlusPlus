@@ -6,7 +6,7 @@ on:
     branches: master
 env:
   solution: './src/CodingWithCalvin.OpenInNotepadPlusPlus.sln'
-  buildPlatform: 'Any CPU'
+  buildPlatform: 'x86'
   buildConfiguration: 'Release'
   
 jobs:
