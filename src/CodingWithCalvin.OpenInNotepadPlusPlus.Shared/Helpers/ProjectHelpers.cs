@@ -3,7 +3,7 @@ using EnvDTE;
 using EnvDTE80;
 using Microsoft.VisualStudio.Shell;
 
-namespace CodingWithCalvin.OpenInNotepadPlusPlus.Helpers
+namespace CodingWithCalvin.OpenInNotepadPlusPlus.Shared.Helpers
 {
 	internal static class ProjectHelpers
 	{

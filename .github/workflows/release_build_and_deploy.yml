@@ -3,10 +3,6 @@ name: 'Build and Deploy VS2022'
 on:
   push:
     branches: master
-env:
-  solution: './src/CodingWithCalvin.OpenInNotepadPlusPlus.sln'
-  buildPlatform: 'x64'
-  buildConfiguration: 'Release'
   
 jobs:
   Release-Build-and-Deploy: 
@@ -21,22 +17,39 @@ jobs:
         (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/CalvinAllen/devops-scripts/master/gh-actions-set-vsix-version.ps1") | iex
         Vsix-IncrementVersion `
             -BuildNumber ${{ github.run_number }} `
-            -manifestFile './src/CodingWithCalvin.OpenInNotepadPlusPlus/source.extension.vsixmanifest' `
-            -extensionSourceFile './src/CodingWithCalvin.OpenInNotepadPlusPlus/source.extension.cs'
+            -manifestFile './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x86/source.extension.vsixmanifest' `
+            -extensionSourceFile './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x86/VsixConstants.cs'
       shell: powershell
     
-    - name: 2. Bootstrapping NuGet Installer
+    - name: 2. Increment Version
+      run: |
+        (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/CalvinAllen/devops-scripts/master/gh-actions-set-vsix-version.ps1") | iex
+        Vsix-IncrementVersion `
+            -BuildNumber ${{ github.run_number }} `
+            -manifestFile './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/source.extension.vsixmanifest' `
+            -extensionSourceFile './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/VsixConstants.cs'
+      shell: powershell
+
+    - name: 3. Bootstrapping NuGet Installer
       uses: nuget/setup-nuget@v1
     
-    - name: 3. Restoring Packages
-      run: nuget restore ${{ env.solution }}
+    - name: 4. Restoring Packages
+      run: nuget restore ./src/CodingWithCalvin.OpenInNotepadPlusPlus.sln
     
-    - name: 4. Building Solution
-      run: msbuild '${{ env.solution }}' /p:configuration='${{ env.buildConfiguration }}' /p:platform='${{ env.buildPlatform }}'
+    - name: 5. Building x86 Project
+      run: msbuild './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x86/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x86.csproj' /p:configuration='Release' /p:platform='x86'
 
-    - name: 6. Publishing Build Artifacts
+    - name: 6. Building x64 Project
+      run: msbuild './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.csproj' /p:configuration='Release' /p:platform='x64'
+
+    - name: 7. Publishing x86 Build Artifact
       uses: actions/upload-artifact@v2
       with:
-        path: '${{ github.workspace }}\src\CodingWithCalvin.OpenInNotepadPlusPlus\bin\Release\CodingWithCalvin.OpenInNotepadPlusPlus.vsix'
+        path: '${{ github.workspace }}\src\CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x86\bin\x86\Release\CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x86.vsix'
         name: latest
         
+    - name: 8. Publishing x64 Build Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        path: '${{ github.workspace }}\src\CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64\bin\x64\Release\CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.vsix'
+        name: latest

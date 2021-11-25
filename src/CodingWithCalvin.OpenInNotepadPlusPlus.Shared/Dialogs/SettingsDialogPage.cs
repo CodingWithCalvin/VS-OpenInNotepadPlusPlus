@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using Microsoft.VisualStudio.Shell;
 
-namespace CodingWithCalvin.OpenInNotepadPlusPlus
+namespace CodingWithCalvin.OpenInNotepadPlusPlus.Shared.Dialogs
 {
 	public class SettingsDialogPage : DialogPage
 	{
