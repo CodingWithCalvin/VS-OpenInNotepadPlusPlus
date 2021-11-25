@@ -1,4 +1,4 @@
-name: 'Build and Deploy VS2022'
+name: 'Build and Deploy'
   
 on:
   push:
@@ -46,10 +46,10 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         path: '${{ github.workspace }}\src\CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x86\bin\x86\Release\CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x86.vsix'
-        name: latest
+        name: latest-x86
         
     - name: 8. Publishing x64 Build Artifact
       uses: actions/upload-artifact@v2
       with:
         path: '${{ github.workspace }}\src\CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64\bin\x64\Release\CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.vsix'
-        name: latest
+        name: latest-x64
