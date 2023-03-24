@@ -4,18 +4,18 @@
 
 [![License - MIT](https://img.shields.io/github/license/calvinallen/OpenInNotepadPlusPlus?style=for-the-badge)](https://img.shields.io/github/license/calvinallen/OpenInNotepadPlusPlus?style=for-the-badge)
 
-## Build & Marketplace Status
+## Build Status
+
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/CalvinAllen/OpenInNotepadPlusPlus/release_build_and_deploy.yml?style=for-the-badge)
+
+## Marketplace Status
 
 ### Visual Studio 2015 - 2019
-
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/CalvinAllen/OpenInNotepadPlusPlus/Build%20and%20Deploy%20VSLegacy?logo=github&style=for-the-badge)](https://img.shields.io/github/workflow/status/CalvinAllen/OpenInNotepadPlusPlus/Build%20and%20Deploy%20VSLegacy?logo=github&style=for-the-badge)
 
 [![Marketplace Installations](https://img.shields.io/visual-studio-marketplace/i/coding-with-calvin.OpenInNotepad?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/i/coding-with-calvin.OpenInNotepad?style=for-the-badge) [![Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/coding-with-calvin.OpeninNotepad?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/d/coding-with-calvin.OpeninNotepad?style=for-the-badge)
 [![Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/coding-with-calvin.OpeninNotepad?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/v/coding-with-calvin.OpeninNotepad?style=for-the-badge) [![Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/coding-with-calvin.OpeninNotepad?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/r/coding-with-calvin.OpeninNotepad?style=for-the-badge)
 
 ### Visual Studio 2022+
-
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/CalvinAllen/OpenInNotepadPlusPlus/Build%20and%20Deploy%20VS2022?logo=github&style=for-the-badge)](https://img.shields.io/github/workflow/status/CalvinAllen/OpenInNotepadPlusPlus/Build%20and%20Deploy%20VS2022?logo=github&style=for-the-badge)
 
 [![Marketplace Installations](https://img.shields.io/visual-studio-marketplace/i/coding-with-calvin.OpenInNotepadPP2022?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/i/coding-with-calvin.OpenInNotepadPP2022?style=for-the-badge) [![Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/coding-with-calvin.OpenInNotepadPP2022?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/d/coding-with-calvin.OpenInNotepadPP2022?style=for-the-badge)
 [![Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/coding-with-calvin.OpenInNotepadPP2022?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/v/coding-with-calvin.OpenInNotepadPP2022?style=for-the-badge) [![Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/coding-with-calvin.OpenInNotepadPP2022?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/r/coding-with-calvin.OpenInNotepadPP2022?style=for-the-badge)
