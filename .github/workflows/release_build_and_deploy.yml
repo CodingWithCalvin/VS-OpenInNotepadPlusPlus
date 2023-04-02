@@ -1,37 +1,32 @@
 name: 'Build and Deploy'
   
 on:
+  workflow_dispatch:
   push:
     branches: master
   
 jobs:
   Release-Build-and-Deploy: 
-    runs-on: windows-2019
+    runs-on: windows-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: microsoft/setup-msbuild@v1.0.2
     
-    - name: 1. Increment Version
-      run: |
-        (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/CalvinAllen/devops-scripts/master/gh-actions-set-vsix-version.ps1") | iex
-        Vsix-IncrementVersion `
-            -BuildNumber ${{ github.run_number }} `
-            -manifestFile './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x86/source.extension.vsixmanifest' `
-            -extensionSourceFile './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x86/VsixConstants.cs'
-      shell: powershell
-    
-    - name: 2. Increment Version
-      run: |
-        (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/CalvinAllen/devops-scripts/master/gh-actions-set-vsix-version.ps1") | iex
-        Vsix-IncrementVersion `
-            -BuildNumber ${{ github.run_number }} `
-            -manifestFile './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/source.extension.vsixmanifest' `
-            -extensionSourceFile './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/VsixConstants.cs'
-      shell: powershell
+    - name: 1. Versioning x86 Release
+      uses: CalvinAllen/action-vs-vsix-versioner@v1
+      with:
+        extension-manifest-file: './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x86/source.extension.vsixmanifest'
+        extension-source-file: './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x86/VsixConstants.cs'
 
+    - name: 1. Versioning x64 Release
+      uses: CalvinAllen/action-vs-vsix-versioner@v1
+      with:
+        extension-manifest-file: './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/source.extension.vsixmanifest'
+        extension-source-file: './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/VsixConstants.cs'
+    
     - name: 3. Bootstrapping NuGet Installer
-      uses: nuget/setup-nuget@v1
+      uses: nuget/setup-nuget@v1.1.1
     
     - name: 4. Restoring Packages
       run: nuget restore ./src/CodingWithCalvin.OpenInNotepadPlusPlus.sln
@@ -43,13 +38,13 @@ jobs:
       run: msbuild './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.csproj' /p:configuration='Release' /p:platform='x64'
 
     - name: 7. Publishing x86 Build Artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         path: '${{ github.workspace }}\src\CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x86\bin\x86\Release\CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x86.vsix'
         name: latest-x86
         
     - name: 8. Publishing x64 Build Artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         path: '${{ github.workspace }}\src\CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64\bin\x64\Release\CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.vsix'
         name: latest-x64
