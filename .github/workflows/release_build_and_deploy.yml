@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
-    - uses: microsoft/setup-msbuild@v1.0.2
+    - uses: microsoft/setup-msbuild@v2
     
     - name: 1. Versioning Release
       id: step-version
@@ -27,7 +27,7 @@ jobs:
         extension-source-file: 'src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/VsixConstants.cs'
     
     - name: 2. Bootstrapping NuGet Installer
-      uses: nuget/setup-nuget@v1.1.1
+      uses: nuget/setup-nuget@v2
     
     - name: 3. Restoring Packages
       run: nuget restore ./src/CodingWithCalvin.OpenInNotepadPlusPlus.sln
