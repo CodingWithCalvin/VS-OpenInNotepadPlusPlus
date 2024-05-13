@@ -7,12 +7,7 @@ using EnvDTE;
 using System.Windows.Forms;
 using CodingWithCalvin.OpenInNotepadPlusPlus.Shared.Helpers;
 using CodingWithCalvin.OpenInNotepadPlusPlus.Shared.Dialogs;
-
-#if X64
 using CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64;
-#elif X86
-using CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x86;
-#endif
 
 namespace CodingWithCalvin.OpenInNotepadPlusPlus.Shared.Commands
 {

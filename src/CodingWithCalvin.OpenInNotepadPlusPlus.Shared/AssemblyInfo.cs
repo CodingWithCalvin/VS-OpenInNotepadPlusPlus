@@ -1,11 +1,6 @@
-﻿#if X64
-using CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64;
-#elif X86
-using CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x86;
-#endif
-
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.InteropServices;
+using CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64;
 
 [assembly: AssemblyTitle(VsixConstants.Name)]
 [assembly: AssemblyDescription(VsixConstants.Description)]
