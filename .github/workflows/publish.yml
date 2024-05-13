@@ -2,9 +2,6 @@ name: Publish to VS Marketplace
 
 on:
   workflow_dispatch:
-  push:
-    tags:
-      - 'v[0-9]+.[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
   publish:
@@ -20,24 +17,26 @@ jobs:
           github_token: ${{secrets.GH_SECRET}}
           workflow: release_build_and_deploy.yml
           workflow_conclusion: success
-
-      - name: 2. Publish Release to Marketplace
+          
+      - name: 2. Parse Artifact Manifest
+        id: artifact_manifest
+        uses: ActionsTools/read-json-action@main
+        with:
+          file_path: ./artifact/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.info
+          
+      - name: 3. Publish Release to Marketplace
         uses: CodingWithCalvin/GHA-VSMarketplacePublisher@v1
         with:
           marketplace-pat: ${{ secrets.VS_PAT }}
           publish-manifest-path: ./src/extension.manifest.json
           vsix-path: ./artifact/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.vsix
 
-      - name: 3. Create Release
+      - name: 4. Create Tag & Release
         uses: ncipollo/release-action@v1.14.0
         with:
           artifacts: ./artifact/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.vsix
           generateReleaseNotes: true
           makeLatest: true
           token: ${{secrets.GH_SECRET}}
-                
-      - name: 4. Create Tag
-        uses: rickstaa/action-create-tag@v1
-        with:
-          tag: "v"
-          force_push_tag: true
+          commit: ${{ steps.artifact_manifest.outputs.sha }}
+          tag: "v${{steps.artifact_manifest.outputs.version }}"
