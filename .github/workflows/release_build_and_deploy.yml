@@ -16,9 +16,9 @@ jobs:
     
     steps:
     - uses: actions/checkout@v4
-    
     - uses: microsoft/setup-msbuild@v2
-    
+    - uses: nuget/setup-nuget@v2
+
     - name: 1. Versioning Release
       id: step-version
       uses: CodingWithCalvin/GHA-VSVsixVersioner@v1
@@ -26,22 +26,19 @@ jobs:
         extension-manifest-file: 'src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/source.extension.vsixmanifest'
         extension-source-file: 'src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/VsixConstants.cs'
     
-    - name: 2. Bootstrapping NuGet Installer
-      uses: nuget/setup-nuget@v2
-    
-    - name: 3. Restoring Packages
+    - name: 2. Restoring Packages
       run: nuget restore ./src/CodingWithCalvin.OpenInNotepadPlusPlus.sln
 
-    - name: 4. Building Project
+    - name: 3. Building Project
       run: msbuild 'src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.csproj' /p:configuration='Release' /p:platform='x64'
 
-    - name: 5. Create Information File
+    - name: 4. Create Information File
       uses: jsdaniell/create-json@v1.2.3
       with:
         name: 'src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/bin/x64/Release/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.info'
         json: '{"sha":"${{ github.sha }}", "version":"${{ steps.step-version.outputs.version }}"}'
     
-    - name: 6. Publishing Build Artifact
+    - name: 5. Publishing Build Artifact
       uses: actions/upload-artifact@v4
       with:
         path: |
