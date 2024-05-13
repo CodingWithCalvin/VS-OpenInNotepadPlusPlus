@@ -14,7 +14,7 @@ jobs:
     - uses: microsoft/setup-msbuild@v1.0.2
     
     - name: 1. Versioning x64 Release
-      uses: CalvinAllen/action-vs-vsix-versioner@v1
+      uses: CodingWithCalvin/GHA-VSVsixVersioner@v1
       with:
         extension-manifest-file: './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/source.extension.vsixmanifest'
         extension-source-file: './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/VsixConstants.cs'
