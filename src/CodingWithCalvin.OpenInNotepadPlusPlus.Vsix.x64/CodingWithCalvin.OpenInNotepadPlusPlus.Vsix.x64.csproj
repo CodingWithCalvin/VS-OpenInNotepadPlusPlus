@@ -74,8 +74,8 @@
       <Link>Resources\Icon.png</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Resources\LICENSE.txt">
-      <Link>Resources\LICENSE.txt</Link>
+    <Content Include="..\..\LICENSE">
+      <Link>Resources\LICENSE</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="..\Resources\Logo.png">
