@@ -13,37 +13,22 @@ jobs:
     - uses: actions/checkout@v3
     - uses: microsoft/setup-msbuild@v1.0.2
     
-    - name: 1. Versioning x86 Release
-      uses: CalvinAllen/action-vs-vsix-versioner@v1
-      with:
-        extension-manifest-file: './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x86/source.extension.vsixmanifest'
-        extension-source-file: './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x86/VsixConstants.cs'
-
     - name: 1. Versioning x64 Release
       uses: CalvinAllen/action-vs-vsix-versioner@v1
       with:
         extension-manifest-file: './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/source.extension.vsixmanifest'
         extension-source-file: './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/VsixConstants.cs'
     
-    - name: 3. Bootstrapping NuGet Installer
+    - name: 2. Bootstrapping NuGet Installer
       uses: nuget/setup-nuget@v1.1.1
     
-    - name: 4. Restoring Packages
+    - name: 3. Restoring Packages
       run: nuget restore ./src/CodingWithCalvin.OpenInNotepadPlusPlus.sln
-    
-    - name: 5. Building x86 Project
-      run: msbuild './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x86/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x86.csproj' /p:configuration='Release' /p:platform='x86'
 
-    - name: 6. Building x64 Project
+    - name: 4. Building x64 Project
       run: msbuild './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.csproj' /p:configuration='Release' /p:platform='x64'
-
-    - name: 7. Publishing x86 Build Artifact
-      uses: actions/upload-artifact@v3
-      with:
-        path: '${{ github.workspace }}\src\CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x86\bin\x86\Release\CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x86.vsix'
-        name: latest-x86
         
-    - name: 8. Publishing x64 Build Artifact
+    - name: 5. Publishing x64 Build Artifact
       uses: actions/upload-artifact@v3
       with:
         path: '${{ github.workspace }}\src\CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64\bin\x64\Release\CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.vsix'
