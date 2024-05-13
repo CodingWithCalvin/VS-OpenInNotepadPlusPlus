@@ -22,19 +22,19 @@ jobs:
         id: artifact_manifest
         uses: ActionsTools/read-json-action@main
         with:
-          file_path: ./artifact/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.info
+          file_path: ./artifact/CodingWithCalvin.OpenInNotepadPlusPlus.info
           
       - name: 3. Publish Release to Marketplace
         uses: CodingWithCalvin/GHA-VSMarketplacePublisher@v1
         with:
           marketplace-pat: ${{ secrets.VS_PAT }}
-          publish-manifest-path: ./src/extension.manifest.json
-          vsix-path: ./artifact/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.vsix
+          publish-manifest-path: ./resources/extension.manifest.json
+          vsix-path: ./artifact/CodingWithCalvin.OpenInNotepadPlusPlus.vsix
 
       - name: 4. Create Tag & Release
         uses: ncipollo/release-action@v1.14.0
         with:
-          artifacts: ./artifact/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.vsix
+          artifacts: ./artifact/CodingWithCalvin.OpenInNotepadPlusPlus.vsix
           generateReleaseNotes: true
           makeLatest: true
           token: ${{secrets.GH_SECRET}}
