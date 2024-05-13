@@ -2,15 +2,8 @@
   "$schema": "http://json.schemastore.org/vsix-publish",
   "categories": [ "coding", "other", "programming languages"],
   "identity": {
-    "displayName": "Open in Notepad++",
     "internalName": "VS-OpenInNotepadPlusPlus",
-    "icon": "Resources/Icon.png",
-    "tags": ["code", "text", "notepad++"],
   },
   "overview": "../README.md",
-  "priceCategory": "free",
-  "publisher": "CodingWithCalvin",
-  "private": false,
-  "qna": false,
-  "repo": "https://github.com/CodingWithCalvin/VS-OpenInNotepadPlusPlus"
+  "publisher": "CodingWithCalvin"
 }
