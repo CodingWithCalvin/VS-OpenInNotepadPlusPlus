@@ -44,4 +44,6 @@ jobs:
     - name: 6. Publishing Build Artifact
       uses: actions/upload-artifact@v4
       with:
-        path: './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/bin/x64/Release/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.*'
+        path: |
+          './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/bin/x64/Release/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.info'
+          './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/bin/x64/Release/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.vsix'
