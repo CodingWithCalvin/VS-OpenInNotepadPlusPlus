@@ -23,8 +23,8 @@ jobs:
       id: step-version
       uses: CodingWithCalvin/GHA-VSVsixVersioner@v1
       with:
-        extension-manifest-file: './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/source.extension.vsixmanifest'
-        extension-source-file: './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/VsixConstants.cs'
+        extension-manifest-file: 'src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/source.extension.vsixmanifest'
+        extension-source-file: 'src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/VsixConstants.cs'
     
     - name: 2. Bootstrapping NuGet Installer
       uses: nuget/setup-nuget@v1.1.1
@@ -33,17 +33,17 @@ jobs:
       run: nuget restore ./src/CodingWithCalvin.OpenInNotepadPlusPlus.sln
 
     - name: 4. Building Project
-      run: msbuild './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.csproj' /p:configuration='Release' /p:platform='x64'
+      run: msbuild 'src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.csproj' /p:configuration='Release' /p:platform='x64'
 
     - name: 5. Create Information File
       uses: jsdaniell/create-json@v1.2.3
       with:
-        name: './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/bin/x64/Release/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.info'
+        name: 'src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/bin/x64/Release/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.info'
         json: '{"sha":"${{ github.sha }}", "version":"${{ steps.step-version.outputs.version }}"}'
     
     - name: 6. Publishing Build Artifact
       uses: actions/upload-artifact@v4
       with:
         path: |
-          './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/bin/x64/Release/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.info'
-          './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/bin/x64/Release/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.vsix'
+          'src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/bin/x64/Release/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.info'
+          'src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/bin/x64/Release/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.vsix'
