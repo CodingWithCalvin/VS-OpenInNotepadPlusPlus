@@ -2,12 +2,12 @@
   "$schema": "http://json.schemastore.org/vsix-publish",
   "categories": [ "coding", "other", "programming languages"],
   "identity": {
-    "internalName": "OpenInNotepadPP2022"
+    "internalName": "VS-OpenInNotepadPlusPlus"
   },
   "overview": "README.md",
   "priceCategory": "free",
-  "publisher": "CalvinAAllen",
+  "publisher": "CodingWithCalvin",
   "private": false,
   "qna": true,
-  "repo": "https://github.com/CalvinAllen/OpenInNotepadPlusPlus"
+  "repo": "https://github.com/CodingWithCalvin/VS-OpenInNotepadPlusPlus"
 }
