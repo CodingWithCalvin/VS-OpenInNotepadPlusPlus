@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="C7A8F218-C175-44F5-97A0-8C2C88FBA176" Version="4.1.0" Language="en-US" Publisher="Calvin A. Allen" />
+        <Identity Id="VS-OpenInNotepadPlusPlus" Version="4.1.0" Language="en-US" Publisher="Coding With Calvin" />
         <DisplayName>Open in Notepad++</DisplayName>
         <Description xml:space="preserve">Adds a menu command that lets you open any solution, project, folder and file in Notepad++</Description>
-        <MoreInfo>https://github.com/CalvinAllen/OpenInNotepadPlusPlus</MoreInfo>
+        <MoreInfo>https://github.com/CodingWithCalvin/VS-OpenInNotepadPlusPlus</MoreInfo>
         <License>Resources\LICENSE.txt</License>
         <Icon>Resources\Icon.png</Icon>
         <PreviewImage>Resources\Preview.png</PreviewImage>
