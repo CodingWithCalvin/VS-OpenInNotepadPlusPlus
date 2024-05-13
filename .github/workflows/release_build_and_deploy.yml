@@ -15,10 +15,12 @@ jobs:
     runs-on: windows-latest
     
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
+    
     - uses: microsoft/setup-msbuild@v1.0.2
     
     - name: 1. Versioning Release
+      id: step-version
       uses: CodingWithCalvin/GHA-VSVsixVersioner@v1
       with:
         extension-manifest-file: './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/source.extension.vsixmanifest'
@@ -32,8 +34,16 @@ jobs:
 
     - name: 4. Building Project
       run: msbuild './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.csproj' /p:configuration='Release' /p:platform='x64'
-        
-    - name: 5. Publishing Build Artifact
-      uses: actions/upload-artifact@v3
+
+    - name: 5. Create Information File
+      uses: jsdaniell/create-json@v1.2.3
       with:
-        path: './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/bin/x64/Release/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.vsix'
+        name: './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/bin/x64/Release/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.info'
+        json: '{"sha":"${{ github.sha }}", "version":"${{ steps.step-version.outputs.version }}"}'
+    
+    - name: 6. Publishing Build Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        path: |
+          './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/bin/x64/Release/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.vsix'
+          './src/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64/bin/x64/Release/CodingWithCalvin.OpenInNotepadPlusPlus.Vsix.x64.info'
