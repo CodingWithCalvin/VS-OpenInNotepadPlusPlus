@@ -5,7 +5,7 @@
         <DisplayName>Open in Notepad++</DisplayName>
         <Description xml:space="preserve">Adds a menu command that lets you open any solution, project, folder and file in Notepad++</Description>
         <MoreInfo>https://github.com/CodingWithCalvin/VS-OpenInNotepadPlusPlus</MoreInfo>
-        <License>Resources\LICENSE.txt</License>
+        <License>Resources\LICENSE</License>
         <Icon>Resources\Icon.png</Icon>
         <PreviewImage>Resources\Preview.png</PreviewImage>
         <Tags>notepad++, text, code</Tags>
