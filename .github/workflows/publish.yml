@@ -12,7 +12,7 @@ jobs:
 
       - name: 1. Download artifact
         id: download-artifact
-        uses: dawidd6/action-download-artifact@v2
+        uses: dawidd6/action-download-artifact@v6
         with:
           github_token: ${{secrets.GH_SECRET}}
           workflow: release_build_and_deploy.yml
