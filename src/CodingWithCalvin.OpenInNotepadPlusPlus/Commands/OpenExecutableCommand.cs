@@ -72,7 +72,6 @@ namespace CodingWithCalvin.OpenInNotepadPlusPlus.Commands
         {
             var startInfo = new ProcessStartInfo
             {
-                WorkingDirectory = selectedFilePath,
                 FileName = $"\"{executablePath}\"",
                 Arguments = $"\"{selectedFilePath}\"",
                 CreateNoWindow = true,
