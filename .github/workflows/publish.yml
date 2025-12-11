@@ -10,6 +10,8 @@ permissions:
 jobs:
   publish:
     runs-on: windows-latest
+    outputs:
+      version: ${{ steps.artifact_manifest.outputs.version }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -44,106 +46,16 @@ jobs:
           publish-manifest-path: ./resources/extension.manifest.json
           vsix-path: ./artifact/CodingWithCalvin.OpenInNotepadPlusPlus.vsix
 
-      - name: 5. Post to BlueSky
-        if: success()
-        run: |
-          VERSION="${{ steps.artifact_manifest.outputs.version }}"
-          RELEASE_URL="https://github.com/${{ github.repository }}/releases/tag/$VERSION"
-          MARKETPLACE_URL="https://marketplace.visualstudio.com/items?itemName=CodingWithCalvin.VS-OpenInNotepadPlusPlus"
+  notify:
+    needs: publish
+    uses: CodingWithCalvin/.github/.github/workflows/bluesky-post.yml@main
+    with:
+      post_text: |
+        🚀 Open in Notepad++ v${{ needs.publish.outputs.version }} for #VisualStudio has been released!
 
-          # Authenticate with BlueSky
-          echo "Authenticating with BlueSky..."
-          AUTH_RESPONSE=$(curl -s -X POST https://bsky.social/xrpc/com.atproto.server.createSession \
-            -H "Content-Type: application/json" \
-            -d "{\"identifier\": \"${{ secrets.BLUESKY_USERNAME }}\", \"password\": \"${{ secrets.BLUESKY_APP_PASSWORD }}\"}")
+        [Check out the release notes here!](https://github.com/${{ github.repository }}/releases/tag/${{ needs.publish.outputs.version }})
 
-          ACCESS_TOKEN=$(echo "$AUTH_RESPONSE" | jq -r '.accessJwt')
-          DID=$(echo "$AUTH_RESPONSE" | jq -r '.did')
-
-          if [ -z "$ACCESS_TOKEN" ] || [ "$ACCESS_TOKEN" == "null" ]; then
-            echo "Error: Failed to authenticate with BlueSky"
-            echo "Response: $AUTH_RESPONSE"
-            exit 1
-          fi
-
-          echo "✓ Authenticated as $DID"
-
-          # Create post text
-          POST_TEXT="🚀 Open in Notepad++ v${VERSION} for #VisualStudio has been released!"
-          POST_TEXT="${POST_TEXT}"$'\n\n'"Check out the release notes here!"
-          POST_TEXT="${POST_TEXT}"$'\n\n'"Marketplace: ${MARKETPLACE_URL}"
-
-          echo "Post text: $POST_TEXT"
-
-          # Get current timestamp in ISO 8601 format
-          TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-
-          # Calculate facets (byte positions for hashtags and links)
-          echo "Calculating facets for links and hashtags..."
-          export POST_TEXT
-          export RELEASE_URL
-          FACETS=$(python3 -c "
-          import json, re, os
-          text = os.environ['POST_TEXT']
-          release_url = os.environ['RELEASE_URL']
-          facets = []
-          # Add hashtag facets
-          for m in re.finditer(r'#(\w+)', text):
-              facets.append({
-                  'index': {'byteStart': len(text[:m.start()].encode('utf-8')), 'byteEnd': len(text[:m.start()+len(m.group(0))].encode('utf-8'))},
-                  'features': [{'\$type': 'app.bsky.richtext.facet#tag', 'tag': m.group(1)}]
-              })
-          # Add link facets for URLs
-          for m in re.finditer(r'https?://[^\s]+', text):
-              facets.append({
-                  'index': {'byteStart': len(text[:m.start()].encode('utf-8')), 'byteEnd': len(text[:m.start()+len(m.group())].encode('utf-8'))},
-                  'features': [{'\$type': 'app.bsky.richtext.facet#link', 'uri': m.group()}]
-              })
-          # Add link facet for 'Check out the release notes here!'
-          release_text = 'Check out the release notes here!'
-          idx = text.find(release_text)
-          if idx >= 0:
-              facets.append({
-                  'index': {'byteStart': len(text[:idx].encode('utf-8')), 'byteEnd': len(text[:idx+len(release_text)].encode('utf-8'))},
-                  'features': [{'\$type': 'app.bsky.richtext.facet#link', 'uri': release_url}]
-              })
-          print(json.dumps(facets))
-          ")
-
-          echo "Facets: $FACETS"
-
-          # Create the post using jq to properly escape JSON
-          echo "Creating BlueSky post..."
-          POST_RESPONSE=$(jq -n \
-            --arg did "$DID" \
-            --arg text "$POST_TEXT" \
-            --arg timestamp "$TIMESTAMP" \
-            --argjson facets "$FACETS" \
-            '{
-              repo: $did,
-              collection: "app.bsky.feed.post",
-              record: {
-                text: $text,
-                facets: $facets,
-                createdAt: $timestamp,
-                "$type": "app.bsky.feed.post"
-              }
-            }' | curl -s -X POST https://bsky.social/xrpc/com.atproto.repo.createRecord \
-            -H "Content-Type: application/json" \
-            -H "Authorization: Bearer $ACCESS_TOKEN" \
-            -d @-)
-
-          POST_URI=$(echo "$POST_RESPONSE" | jq -r '.uri')
-
-          if [ -z "$POST_URI" ] || [ "$POST_URI" == "null" ]; then
-            echo "Error: Failed to create BlueSky post"
-            echo "Response: $POST_RESPONSE"
-            exit 1
-          fi
-
-          # Extract the post ID from the URI
-          POST_ID=$(echo "$POST_URI" | sed 's|.*/||')
-          POST_URL="https://bsky.app/profile/${{ secrets.BLUESKY_USERNAME }}/post/$POST_ID"
-
-          echo "✓ Posted to BlueSky: $POST_URL"
-        shell: bash
+        Marketplace: https://marketplace.visualstudio.com/items?itemName=CodingWithCalvin.VS-OpenInNotepadPlusPlus
+    secrets:
+      BLUESKY_USERNAME: ${{ secrets.BLUESKY_USERNAME }}
+      BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
