@@ -3,6 +3,10 @@ name: Publish to VS Marketplace
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+  actions: read
+
 jobs:
   publish:
     runs-on: windows-latest
@@ -14,7 +18,6 @@ jobs:
         id: download-artifact
         uses: dawidd6/action-download-artifact@v6
         with:
-          github_token: ${{secrets.GH_SECRET}}
           workflow: release_build_and_deploy.yml
           workflow_conclusion: success
           
@@ -30,7 +33,6 @@ jobs:
           artifacts: ./artifact/CodingWithCalvin.OpenInNotepadPlusPlus.vsix
           generateReleaseNotes: true
           makeLatest: true
-          token: ${{ secrets.GH_SECRET }}
           commit: ${{ steps.artifact_manifest.outputs.sha }}
           tag: ${{ steps.artifact_manifest.outputs.version }}
           
