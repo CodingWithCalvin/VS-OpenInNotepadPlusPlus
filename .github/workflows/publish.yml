@@ -8,7 +8,13 @@ permissions:
   actions: read
 
 jobs:
+  changelog:
+    name: Generate Changelog
+    uses: CodingWithCalvin/.github/.github/workflows/generate-changelog.yml@main
+    secrets: inherit
+
   publish:
+    needs: changelog
     runs-on: windows-latest
     outputs:
       version: ${{ steps.artifact_manifest.outputs.version }}
@@ -22,22 +28,22 @@ jobs:
         with:
           workflow: release_build_and_deploy.yml
           workflow_conclusion: success
-          
+
       - name: 2. Parse Artifact Manifest
         id: artifact_manifest
         uses: ActionsTools/read-json-action@main
         with:
           file_path: ./artifact/CodingWithCalvin.OpenInNotepadPlusPlus.info
-          
+
       - name: 3. Create Tag & Release
         uses: ncipollo/release-action@v1.14.0
         with:
           artifacts: ./artifact/CodingWithCalvin.OpenInNotepadPlusPlus.vsix
-          generateReleaseNotes: true
+          body: ${{ needs.changelog.outputs.changelog }}
           makeLatest: true
           commit: ${{ steps.artifact_manifest.outputs.sha }}
           tag: ${{ steps.artifact_manifest.outputs.version }}
-          
+
       - name: 4. Publish Release to Marketplace
         if: success()
         uses: CodingWithCalvin/GHA-VSMarketplacePublisher@v1
