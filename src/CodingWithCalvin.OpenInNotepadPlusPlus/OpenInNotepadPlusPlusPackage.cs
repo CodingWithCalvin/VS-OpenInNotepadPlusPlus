@@ -9,10 +9,10 @@ using Microsoft.VisualStudio.Shell;
 namespace CodingWithCalvin.OpenInNotepadPlusPlus
 {
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
-    [InstalledProductRegistration(Vsix.Name, Vsix.Description, Vsix.Version)]
+    [InstalledProductRegistration(VsixInfo.DisplayName, VsixInfo.Description, VsixInfo.Version)]
     [ProvideOptionPage(
         typeof(SettingsDialogPage),
-        Vsix.Name,
+        VsixInfo.DisplayName,
         "General",
         101,
         111,
@@ -21,7 +21,7 @@ namespace CodingWithCalvin.OpenInNotepadPlusPlus
         ProvidesLocalizedCategoryName = false
     )]
     [ProvideMenuResource("Menus.ctmenu", 1)]
-    [Guid(PackageGuids.guidPackageString)]
+    [Guid("6AEABF47-7BDC-47B3-ADE7-06F5BAE6D868")]  
     public sealed class OpenInNotepadPlusPlusPackage : AsyncPackage
     {
         protected override async System.Threading.Tasks.Task InitializeAsync(
@@ -34,8 +34,8 @@ namespace CodingWithCalvin.OpenInNotepadPlusPlus
             var settings = (SettingsDialogPage)this.GetDialogPage(typeof(SettingsDialogPage));
 
             var builder = VsixTelemetry.Configure()
-                .WithServiceName(Vsix.Name)
-                .WithServiceVersion(Vsix.Version)
+                .WithServiceName(VsixInfo.DisplayName)
+                .WithServiceVersion(VsixInfo.Version)
                 .WithVisualStudioAttributes(this)
                 .WithEnvironmentAttributes();
 
