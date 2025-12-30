@@ -36,7 +36,7 @@ jobs:
       run: nuget restore ./src/CodingWithCalvin.OpenInNotepadPlusPlus.slnx
 
     - name: 4. Building Project
-      run: msbuild 'src/CodingWithCalvin.OpenInNotepadPlusPlus/CodingWithCalvin.OpenInNotepadPlusPlus.csproj' /p:configuration='Release' /p:platform='Any CPU' /p:DeployExtension=False
+      run: msbuild 'src/CodingWithCalvin.OpenInNotepadPlusPlus/CodingWithCalvin.OpenInNotepadPlusPlus.csproj' /p:configuration='Release' /p:platform=AnyCPU /p:DeployExtension=False
 
     - name: 5. Create Information File
       uses: jsdaniell/create-json@v1.2.3
