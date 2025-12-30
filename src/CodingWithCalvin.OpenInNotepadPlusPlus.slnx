@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="../resources/extension.manifest.json" />
+    <File Path="../.github/workflows/publish.yml" />
+    <File Path="../README.md" />
+    <File Path="../.github/workflows/release_build_and_deploy.yml" />
+  </Folder>
+  <Project Path="CodingWithCalvin.OpenInNotepadPlusPlus/CodingWithCalvin.OpenInNotepadPlusPlus.csproj" Id="add4175c-aa5c-49e4-afaf-6b9d3e832e8d" />
+</Solution>
