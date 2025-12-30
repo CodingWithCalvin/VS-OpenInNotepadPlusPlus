@@ -1,32 +1,89 @@
-# Open in Notepad++
+<p align="center">
+  <img src="resources/logo.png" alt="Open in Notepad++ Logo" width="128" height="128">
+</p>
 
-A Visual Studio extension that adds a right-click context menu command that allows you to open the solution file, project file, or file in Notepad++.
+<h1 align="center">Open in Notepad++</h1>
 
-## License
+<p align="center">
+  <strong>🚀 Instantly open any file from Visual Studio in Notepad++!</strong>
+</p>
 
-[![License - MIT](https://img.shields.io/github/license/CodingWithCalvin/VS-OpenInNotepadPlusPlus?style=for-the-badge)](https://img.shields.io/github/license/codingwithcalvin/VS-OpenInNotepadPlusPlus?style=for-the-badge)
+<p align="center">
+  <a href="https://github.com/CodingWithCalvin/VS-OpenInNotepadPlusPlus/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/CodingWithCalvin/VS-OpenInNotepadPlusPlus?style=for-the-badge" alt="License">
+  </a>
+  <a href="https://github.com/CodingWithCalvin/VS-OpenInNotepadPlusPlus/actions/workflows/release_build_and_deploy.yml">
+    <img src="https://img.shields.io/github/actions/workflow/status/CodingWithCalvin/VS-OpenInNotepadPlusPlus/release_build_and_deploy.yml?style=for-the-badge" alt="Build Status">
+  </a>
+</p>
 
-## Build Status
+<p align="center">
+  <a href="https://marketplace.visualstudio.com/items?itemName=codingwithcalvin.VS-OpenInNotepadPlusPlus">
+    <img src="https://img.shields.io/visual-studio-marketplace/v/codingwithcalvin.VS-OpenInNotepadPlusPlus?style=for-the-badge" alt="Marketplace Version">
+  </a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=codingwithcalvin.VS-OpenInNotepadPlusPlus">
+    <img src="https://img.shields.io/visual-studio-marketplace/i/codingwithcalvin.VS-OpenInNotepadPlusPlus?style=for-the-badge" alt="Marketplace Installations">
+  </a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=codingwithcalvin.VS-OpenInNotepadPlusPlus">
+    <img src="https://img.shields.io/visual-studio-marketplace/d/codingwithcalvin.VS-OpenInNotepadPlusPlus?style=for-the-badge" alt="Marketplace Downloads">
+  </a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=codingwithcalvin.VS-OpenInNotepadPlusPlus">
+    <img src="https://img.shields.io/visual-studio-marketplace/r/codingwithcalvin.VS-OpenInNotepadPlusPlus?style=for-the-badge" alt="Marketplace Rating">
+  </a>
+</p>
 
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/CodingWithCalvin/VS-OpenInNotepadPlusPlus/release_build_and_deploy.yml?style=for-the-badge)
+---
 
-## Marketplace Status
+## ✨ Features
 
-[![Marketplace Installations](https://img.shields.io/visual-studio-marketplace/i/codingwithcalvin.VS-OpenInNotepadPlusPlus?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/i/codingwithcalvin.VS-OpenInNotepadPlusPlus?style=for-the-badge) [![Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/codingwithcalvin.VS-OpenInNotepadPlusPlus?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/d/codingwithcalvin.VS-OpenInNotepadPlusPlus?style=for-the-badge)
-[![Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/codingwithcalvin.VS-OpenInNotepadPlusPlus?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/v/codingwithcalvin.VS-OpenInNotepadPlusPlus?style=for-the-badge) [![Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/codingwithcalvin.VS-OpenInNotepadPlusPlus?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/r/codingwithcalvin.VS-OpenInNotepadPlusPlus?style=for-the-badge)
+- **Right-click to open** - Open any file directly from Solution Explorer
+- **Works everywhere** - Solutions, projects, folders, and individual files
+- **Auto-detection** - Automatically finds Notepad++ in the default install location
+- **Configurable** - Custom executable path via Tools > Options
 
-## Prerequisite
+## 📋 Prerequisites
 
-In order to use this extension, you must have Notepad++ installed.
+This extension requires [Notepad++](https://notepad-plus-plus.org/) to be installed on your machine.
 
-You can [download Notepad++ for free](https://notepad-plus-plus.org/).
+## ⚙️ Configuration
 
-## Settings
+The extension automatically detects `notepad++.exe` in the default installation directory. If you've installed Notepad++ to a custom location, configure the path in **Tools > Options > Open in Notepad++**.
 
-The extension will automatically find `notepad++.exe` when it's located at in the default install directory. If it's installed in a custom location, you can easily change it in the settings dialog.
+## 🛠️ Installation
 
-## Contributions
+### Visual Studio Marketplace
 
-Contributions are welcome! Issues, PRs, etc. While it may seem this extension is "done", who knows what the future may hold for it?
+1. Open Visual Studio 2022
+2. Go to **Extensions > Manage Extensions**
+3. Search for "Open in Notepad++"
+4. Click **Download** and restart Visual Studio
 
-For cloning and building this project yourself, make sure to install the [Extensibility Essentials 2022 extension](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.ExtensibilityEssentials2022) for Visual Studio which enables some features used by this project.
+### Manual Installation
+
+Download the latest `.vsix` from the [Releases](https://github.com/CodingWithCalvin/VS-OpenInNotepadPlusPlus/releases) page and double-click to install.
+
+## 🤝 Contributing
+
+Contributions are welcome! Whether it's bug reports, feature requests, or pull requests - all feedback helps make this extension better.
+
+### Development Setup
+
+1. Clone the repository
+2. Install [Extensibility Essentials 2022](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.ExtensibilityEssentials2022)
+3. Open `src/CodingWithCalvin.OpenInNotepadPlusPlus.slnx` in Visual Studio
+4. Press F5 to launch the experimental instance
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 👥 Contributors
+
+<!-- readme: contributors -start -->
+<!-- readme: contributors -end -->
+
+<p align="center">
+  Made with ❤️ by <a href="https://github.com/CalvinAllen">Calvin Allen</a>
+</p>
