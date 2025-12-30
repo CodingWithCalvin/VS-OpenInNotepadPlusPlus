@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
 using System.IO;
-using System.Linq;
 using Microsoft.VisualStudio.Shell;
 
 namespace CodingWithCalvin.OpenInNotepadPlusPlus.Dialogs
@@ -41,7 +40,7 @@ namespace CodingWithCalvin.OpenInNotepadPlusPlus.Dialogs
                 )
             )
             {
-                foreach (var fileSystemInfo in directory.GetDirectories("Notepad++").Reverse())
+                foreach (var fileSystemInfo in directory.GetDirectories("Notepad++"))
                 {
                     var path = Path.Combine(fileSystemInfo.FullName, "notepad++.exe");
                     if (File.Exists(path))

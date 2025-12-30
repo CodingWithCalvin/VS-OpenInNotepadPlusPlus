@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Runtime.InteropServices;
 using System.Threading;
 using CodingWithCalvin.OpenInNotepadPlusPlus.Commands;
 using CodingWithCalvin.OpenInNotepadPlusPlus.Dialogs;
-using CodingWithCalvin.OpenInNotepadPlusPlus.Helpers;
+using CodingWithCalvin.Otel4Vsix;
 using Microsoft.VisualStudio.Shell;
 
 namespace CodingWithCalvin.OpenInNotepadPlusPlus
@@ -33,8 +33,30 @@ namespace CodingWithCalvin.OpenInNotepadPlusPlus
 
             var settings = (SettingsDialogPage)this.GetDialogPage(typeof(SettingsDialogPage));
 
-            Logger.Initialize(this, Vsix.Name);
+            var builder = VsixTelemetry.Configure()
+                .WithServiceName(Vsix.Name)
+                .WithServiceVersion(Vsix.Version)
+                .WithVisualStudioAttributes(this)
+                .WithEnvironmentAttributes();
+
+#if !DEBUG
+            builder
+                .WithOtlpHttp("https://api.honeycomb.io")
+                .WithHeader("x-honeycomb-team", HoneycombConfig.ApiKey);
+#endif
+
+            builder.Initialize();
+
             OpenExecutableCommand.Initialize(this, settings);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                VsixTelemetry.Shutdown();
+            }
+            base.Dispose(disposing);
         }
     }
 }
