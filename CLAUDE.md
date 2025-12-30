@@ -82,7 +82,7 @@ This is a Visual Studio extension that adds a right-click context menu command t
 
 Build the extension (requires Visual Studio with VS SDK or .NET Framework 4.8 targeting pack):
 ```
-msbuild src\CodingWithCalvin.OpenInNotepadPlusPlus.sln
+msbuild src\CodingWithCalvin.OpenInNotepadPlusPlus.slnx
 ```
 
 Debug by pressing F5 in Visual Studio - this launches the VS Experimental Instance (`/rootsuffix Exp`).

@@ -52,16 +52,40 @@ jobs:
           publish-manifest-path: ./resources/extension.manifest.json
           vsix-path: ./artifact/CodingWithCalvin.OpenInNotepadPlusPlus.vsix
 
-  notify:
+  notify-bluesky:
+    name: Post to BlueSky
     needs: publish
     uses: CodingWithCalvin/.github/.github/workflows/bluesky-post.yml@main
     with:
       post_text: |
         🚀 Open in Notepad++ v${{ needs.publish.outputs.version }} for #VisualStudio has been released!
 
-        [Check out the release notes here!](https://github.com/${{ github.repository }}/releases/tag/${{ needs.publish.outputs.version }})
+        📝 [Release Notes](https://github.com/${{ github.repository }}/releases/tag/${{ needs.publish.outputs.version }})
+        🛒 [Marketplace](https://marketplace.visualstudio.com/items?itemName=CodingWithCalvin.VS-OpenInNotepadPlusPlus)
 
-        Marketplace: https://marketplace.visualstudio.com/items?itemName=CodingWithCalvin.VS-OpenInNotepadPlusPlus
+        #dotnet #visualstudio #vsix #notepadplusplus
+      embed_url: https://marketplace.visualstudio.com/items?itemName=CodingWithCalvin.VS-OpenInNotepadPlusPlus
+      embed_title: "Open in Notepad++ v${{ needs.publish.outputs.version }}"
+      embed_description: "Visual Studio extension to open files in Notepad++"
     secrets:
       BLUESKY_USERNAME: ${{ secrets.BLUESKY_USERNAME }}
       BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+
+  notify-linkedin:
+    name: Post to LinkedIn
+    needs: publish
+    uses: CodingWithCalvin/.github/.github/workflows/linkedin-post.yml@main
+    with:
+      post_text: |
+        🚀 Open in Notepad++ v${{ needs.publish.outputs.version }} for Visual Studio has been released!
+
+        📝 Release Notes: https://github.com/${{ github.repository }}/releases/tag/${{ needs.publish.outputs.version }}
+        🛒 Marketplace: https://marketplace.visualstudio.com/items?itemName=CodingWithCalvin.VS-OpenInNotepadPlusPlus
+
+        #dotnet #visualstudio #vsix #notepadplusplus
+      article_url: https://marketplace.visualstudio.com/items?itemName=CodingWithCalvin.VS-OpenInNotepadPlusPlus
+      article_title: "Open in Notepad++ v${{ needs.publish.outputs.version }}"
+      article_description: "Visual Studio extension to open files in Notepad++"
+    secrets:
+      LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+      LINKEDIN_CLIENT_ID: ${{ secrets.LINKEDIN_CLIENT_ID }}

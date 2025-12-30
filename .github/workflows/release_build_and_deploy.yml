@@ -7,8 +7,6 @@ on:
   push:
     branches: 
       - main
-    tags-ignore:
-      - '[0-9]+.[0-9]+.[0-9]+.[0-9]+'
   
 jobs:
   Release-Build-and-Deploy: 
@@ -26,21 +24,29 @@ jobs:
         extension-manifest-file: 'src/CodingWithCalvin.OpenInNotepadPlusPlus/source.extension.vsixmanifest'
         extension-source-file: 'src/CodingWithCalvin.OpenInNotepadPlusPlus/source.extension.cs'
     
-    - name: 2. Restoring Packages
-      run: nuget restore ./src/CodingWithCalvin.OpenInNotepadPlusPlus.sln
+    - name: 2. Inject Honeycomb API Key
+      run: |
+        $file = 'src/CodingWithCalvin.OpenInNotepadPlusPlus/HoneycombConfig.cs'
+        $content = Get-Content $file -Raw
+        $content = $content -replace 'PLACEHOLDER', '${{ secrets.HONEYCOMB_API_KEY }}'
+        Set-Content $file $content
+      shell: pwsh
 
-    - name: 3. Building Project
-      run: msbuild 'src/CodingWithCalvin.OpenInNotepadPlusPlus/CodingWithCalvin.OpenInNotepadPlusPlus.csproj' /p:configuration='Release' /p:platform='x64' /p:DeployExtension=False
+    - name: 3. Restoring Packages
+      run: nuget restore ./src/CodingWithCalvin.OpenInNotepadPlusPlus.slnx
 
-    - name: 4. Create Information File
+    - name: 4. Building Project
+      run: msbuild 'src/CodingWithCalvin.OpenInNotepadPlusPlus/CodingWithCalvin.OpenInNotepadPlusPlus.csproj' /p:configuration='Release' /p:platform='Any CPU' /p:DeployExtension=False
+
+    - name: 5. Create Information File
       uses: jsdaniell/create-json@v1.2.3
       with:
-        name: 'src/CodingWithCalvin.OpenInNotepadPlusPlus/bin/x64/Release/CodingWithCalvin.OpenInNotepadPlusPlus.info'
+        name: 'src/CodingWithCalvin.OpenInNotepadPlusPlus/bin/Release/CodingWithCalvin.OpenInNotepadPlusPlus.info'
         json: '{"sha":"${{ github.sha }}", "version":"${{ steps.step-version.outputs.version }}"}'
-    
-    - name: 5. Publishing Build Artifact
+
+    - name: 6. Publishing Build Artifact
       uses: actions/upload-artifact@v4
       with:
         path: |
-          src/CodingWithCalvin.OpenInNotepadPlusPlus/bin/x64/Release/CodingWithCalvin.OpenInNotepadPlusPlus.info
-          src/CodingWithCalvin.OpenInNotepadPlusPlus/bin/x64/Release/CodingWithCalvin.OpenInNotepadPlusPlus.vsix
+          src/CodingWithCalvin.OpenInNotepadPlusPlus/bin/Release/CodingWithCalvin.OpenInNotepadPlusPlus.info
+          src/CodingWithCalvin.OpenInNotepadPlusPlus/bin/Release/CodingWithCalvin.OpenInNotepadPlusPlus.vsix
