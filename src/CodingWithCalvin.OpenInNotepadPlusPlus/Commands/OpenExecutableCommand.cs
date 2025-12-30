@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Windows.Forms;
 using CodingWithCalvin.OpenInNotepadPlusPlus.Dialogs;
 using CodingWithCalvin.OpenInNotepadPlusPlus.Helpers;
+using CodingWithCalvin.Otel4Vsix;
 using EnvDTE;
 using EnvDTE80;
 using Microsoft.VisualStudio.Shell;
@@ -45,26 +47,37 @@ namespace CodingWithCalvin.OpenInNotepadPlusPlus.Commands
 
         private void OpenPath(object sender, EventArgs e)
         {
+            using var activity = VsixTelemetry.StartCommandActivity("OpenInNotepadPlusPlus.OpenPath");
+
             var service = (DTE2)this.ServiceProvider.GetService(typeof(DTE));
             try
             {
                 ThreadHelper.ThrowIfNotOnUIThread();
                 var selectedFilePath = ProjectHelpers.GetSelectedPath(service);
                 var executablePath = _settings.FolderPath;
+
                 if (
                     !string.IsNullOrEmpty(selectedFilePath) && !string.IsNullOrEmpty(executablePath)
                 )
                 {
+                    VsixTelemetry.LogInformation("Opening file in Notepad++");
                     OpenExecutable(executablePath, selectedFilePath);
                 }
                 else
                 {
+                    VsixTelemetry.LogError("Could not resolve path!");
                     MessageBox.Show("Couldn't resolve the folder");
                 }
             }
             catch (Exception ex)
             {
-                Logger.Log(ex);
+                activity?.RecordError(ex);
+
+                VsixTelemetry.TrackException(ex, new Dictionary<string, object>
+                {
+                    { "operation.name", "OpenPath" },
+                    { "command.name", "OpenInNotepadPlusPlus" }
+                });
             }
         }
 
