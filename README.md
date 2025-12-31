@@ -69,9 +69,8 @@ Contributions are welcome! Whether it's bug reports, feature requests, or pull r
 ### Development Setup
 
 1. Clone the repository
-2. Install [Extensibility Essentials 2022](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.ExtensibilityEssentials2022)
-3. Open `src/CodingWithCalvin.OpenInNotepadPlusPlus.slnx` in Visual Studio
-4. Press F5 to launch the experimental instance
+2. Open `src/CodingWithCalvin.OpenInNotepadPlusPlus.slnx` in Visual Studio
+3. Press F5 to launch the experimental instance
 
 ## 📄 License
 
@@ -89,5 +88,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 <!-- readme: contributors -end -->
 
 <p align="center">
-  Made with ❤️ by <a href="https://github.com/CalvinAllen">Calvin Allen</a>
+  Made with ❤️ by <a href="https://github.com/CalvinAllen">Coding With Calvin</a>
 </p>
