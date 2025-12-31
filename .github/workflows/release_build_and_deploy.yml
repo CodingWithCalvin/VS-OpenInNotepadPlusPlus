@@ -1,29 +1,31 @@
 name: 'Build and Deploy'
-  
+
 on:
   workflow_dispatch:
   pull_request:
     types: [opened, reopened]
   push:
-    branches: 
+    branches:
       - main
-  
+
 jobs:
-  Release-Build-and-Deploy: 
+  Release-Build-and-Deploy:
     runs-on: windows-latest
-    
+
     steps:
     - uses: actions/checkout@v4
-    - uses: microsoft/setup-msbuild@v2
-    - uses: nuget/setup-nuget@v2
 
-    - name: 1. Versioning Release
-      id: step-version
-      uses: CodingWithCalvin/GHA-VSVsixVersioner@v1
-      with:
-        extension-manifest-file: 'src/CodingWithCalvin.OpenInNotepadPlusPlus/source.extension.vsixmanifest'
-        extension-source-file: 'src/CodingWithCalvin.OpenInNotepadPlusPlus/source.extension.cs'
-    
+    - name: 1. Generate Version
+      id: version
+      run: |
+        $year = (Get-Date).Year
+        $month = (Get-Date).Month
+        $day = (Get-Date).Day
+        $version = "$year.$month.$day.${{ github.run_number }}"
+        echo "version=$version" >> $env:GITHUB_OUTPUT
+        Write-Host "Generated version: $version"
+      shell: pwsh
+
     - name: 2. Inject Honeycomb API Key
       run: |
         $file = 'src/CodingWithCalvin.OpenInNotepadPlusPlus/HoneycombConfig.cs'
@@ -32,21 +34,18 @@ jobs:
         Set-Content $file $content
       shell: pwsh
 
-    - name: 3. Restoring Packages
-      run: nuget restore ./src/CodingWithCalvin.OpenInNotepadPlusPlus.slnx
+    - name: 3. Building Project
+      run: dotnet build src/CodingWithCalvin.OpenInNotepadPlusPlus/CodingWithCalvin.OpenInNotepadPlusPlus.csproj -c Release -p:Version=${{ steps.version.outputs.version }}
 
-    - name: 4. Building Project
-      run: msbuild 'src/CodingWithCalvin.OpenInNotepadPlusPlus/CodingWithCalvin.OpenInNotepadPlusPlus.csproj' /p:configuration='Release' /p:platform=AnyCPU /p:DeployExtension=False
-
-    - name: 5. Create Information File
+    - name: 4. Create Information File
       uses: jsdaniell/create-json@v1.2.3
       with:
-        name: 'src/CodingWithCalvin.OpenInNotepadPlusPlus/bin/Release/CodingWithCalvin.OpenInNotepadPlusPlus.info'
-        json: '{"sha":"${{ github.sha }}", "version":"${{ steps.step-version.outputs.version }}"}'
+        name: 'src/CodingWithCalvin.OpenInNotepadPlusPlus/bin/Release/net48/CodingWithCalvin.OpenInNotepadPlusPlus.info'
+        json: '{"sha":"${{ github.sha }}", "version":"${{ steps.version.outputs.version }}"}'
 
-    - name: 6. Publishing Build Artifact
+    - name: 5. Publishing Build Artifact
       uses: actions/upload-artifact@v4
       with:
         path: |
-          src/CodingWithCalvin.OpenInNotepadPlusPlus/bin/Release/CodingWithCalvin.OpenInNotepadPlusPlus.info
-          src/CodingWithCalvin.OpenInNotepadPlusPlus/bin/Release/CodingWithCalvin.OpenInNotepadPlusPlus.vsix
+          src/CodingWithCalvin.OpenInNotepadPlusPlus/bin/Release/net48/CodingWithCalvin.OpenInNotepadPlusPlus.info
+          src/CodingWithCalvin.OpenInNotepadPlusPlus/bin/Release/net48/CodingWithCalvin.OpenInNotepadPlusPlus.vsix

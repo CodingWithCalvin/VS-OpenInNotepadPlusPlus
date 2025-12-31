@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Diagnostics;
-using System.Windows.Forms;
-using CodingWithCalvin.OpenInNotepadPlusPlus.Dialogs;
+﻿using CodingWithCalvin.OpenInNotepadPlusPlus.Dialogs;
 using CodingWithCalvin.OpenInNotepadPlusPlus.Helpers;
 using CodingWithCalvin.Otel4Vsix;
 using EnvDTE;
 using EnvDTE80;
 using Microsoft.VisualStudio.Shell;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.Design;
+using System.Diagnostics;
+using System.Windows.Forms;
+using static CodingWithCalvin.OpenInNotepadPlusPlus.VSCommandTableVsct;
 
 namespace CodingWithCalvin.OpenInNotepadPlusPlus.Commands
 {
@@ -28,8 +29,8 @@ namespace CodingWithCalvin.OpenInNotepadPlusPlus.Commands
             if (commandService != null)
             {
                 var menuCommandId = new CommandID(
-                    PackageGuids.guidOpenInNppCmdSet,
-                    PackageIds.OpenInNpp
+                    guidOpenInNppCmdSet.Guid,
+                    guidOpenInNppCmdSet.OpenInNpp
                 );
                 var menuItem = new MenuCommand(OpenPath, menuCommandId);
                 commandService.AddCommand(menuItem);
@@ -47,12 +48,13 @@ namespace CodingWithCalvin.OpenInNotepadPlusPlus.Commands
 
         private void OpenPath(object sender, EventArgs e)
         {
+            ThreadHelper.ThrowIfNotOnUIThread();
+
             using var activity = VsixTelemetry.StartCommandActivity("OpenInNotepadPlusPlus.OpenPath");
 
             var service = (DTE2)this.ServiceProvider.GetService(typeof(DTE));
             try
             {
-                ThreadHelper.ThrowIfNotOnUIThread();
                 var selectedFilePath = ProjectHelpers.GetSelectedPath(service);
                 var executablePath = _settings.FolderPath;
 
@@ -91,10 +93,7 @@ namespace CodingWithCalvin.OpenInNotepadPlusPlus.Commands
                 WindowStyle = ProcessWindowStyle.Hidden
             };
 
-            using (System.Diagnostics.Process.Start(startInfo))
-            {
-                //TODO : Should this be empty?
-            }
+            using (System.Diagnostics.Process.Start(startInfo)) {}
         }
     }
 }
