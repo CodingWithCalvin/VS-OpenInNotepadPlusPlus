@@ -2,41 +2,10 @@ name: Update Contributors
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Run daily at midnight UTC
-  workflow_dispatch:  # Allow manual trigger
+    - cron: '0 0 * * *'
+  workflow_dispatch:
 
 jobs:
   contributors:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.CONTRIBUTORS_TOKEN }}
-
-      - name: Update contributors
-        env:
-          GH_TOKEN: ${{ secrets.CONTRIBUTORS_TOKEN }}
-        run: |
-          # Fetch contributors from GitHub API (exclude bots)
-          contributors=$(gh api repos/CodingWithCalvin/VS-OpenInNotepadPlusPlus/contributors --paginate --jq '.[] | select(.type != "Bot") | select(.login | test("\\[bot\\]$") | not) | "<a href=\"\(.html_url)\"><img src=\"\(.avatar_url)\" width=\"64\" height=\"64\" alt=\"\(.login)\"/></a>"')
-
-          # Build the contributors section
-          contrib_section="<!-- readme: contributors -start -->
-          <p align=\"left\">
-          $contributors
-          </p>
-          <!-- readme: contributors -end -->"
-
-          # Update README between the markers
-          awk -v contrib="$contrib_section" '
-            /<!-- readme: contributors -start -->/{found=1; print contrib; next}
-            /<!-- readme: contributors -end -->/{found=0; next}
-            !found{print}
-          ' README.md > README.tmp && mv README.tmp README.md
-
-      - name: Commit and push
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add README.md
-          git diff --staged --quiet || (git commit -m "docs: update contributors [skip ci]" && git push)
+    uses: CodingWithCalvin/.github/.github/workflows/contributors.yml@main
+    secrets: inherit
