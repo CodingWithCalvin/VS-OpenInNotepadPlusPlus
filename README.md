@@ -81,10 +81,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👥 Contributors
 
 <!-- readme: contributors -start -->
-<p align="left">
-<a href="https://github.com/CalvinAllen"><img src="https://avatars.githubusercontent.com/u/41448698?v=4" width="64" height="64" alt="CalvinAllen"/></a>
-<a href="https://github.com/Mertsch"><img src="https://avatars.githubusercontent.com/u/9402861?v=4" width="64" height="64" alt="Mertsch"/></a>
-</p>
+[![CalvinAllen](https://avatars.githubusercontent.com/u/41448698?v=4&s=64)](https://github.com/CalvinAllen) [![Mertsch](https://avatars.githubusercontent.com/u/9402861?v=4&s=64)](https://github.com/Mertsch) [![randolm](https://avatars.githubusercontent.com/u/67427043?v=4&s=64)](https://github.com/randolm) 
 <!-- readme: contributors -end -->
 
 <p align="center">
