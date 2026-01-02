@@ -5,6 +5,7 @@
     <RootNamespace>CodingWithCalvin.OpenInNotepadPlusPlus</RootNamespace>
     <AssemblyName>CodingWithCalvin.OpenInNotepadPlusPlus</AssemblyName>
     <LangVersion>latest</LangVersion>
+    <OutputPath>bin/$(Configuration)/</OutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
