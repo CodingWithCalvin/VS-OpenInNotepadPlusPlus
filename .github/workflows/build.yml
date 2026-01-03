@@ -16,49 +16,9 @@ on:
       - '*.slnx'
       - '.github/workflows/build.yml'
 
-env:
-  PROJECT_PATH: src/CodingWithCalvin.OpenInNotepadPlusPlus/CodingWithCalvin.OpenInNotepadPlusPlus.csproj
-  OUTPUT_PATH: src/CodingWithCalvin.OpenInNotepadPlusPlus/bin/Release
-  INFO_FILE: CodingWithCalvin.OpenInNotepadPlusPlus.info
-  VSIX_FILE: CodingWithCalvin.OpenInNotepadPlusPlus.vsix
-
 jobs:
   build:
-    runs-on: windows-latest
-
-    steps:
-    - uses: actions/checkout@v4
-
-    - name: 1. Generate Version
-      id: version
-      run: |
-        $year = (Get-Date).Year
-        $month = (Get-Date).Month
-        $day = (Get-Date).Day
-        $version = "$year.$month.$day.${{ github.run_number }}"
-        echo "version=$version" >> $env:GITHUB_OUTPUT
-      shell: pwsh
-
-    - name: 2. Inject Honeycomb API Key
-      run: |
-        $file = 'src/CodingWithCalvin.OpenInNotepadPlusPlus/HoneycombConfig.cs'
-        $content = Get-Content $file -Raw
-        $content = $content -replace 'PLACEHOLDER', '${{ secrets.HONEYCOMB_API_KEY }}'
-        Set-Content $file $content
-      shell: pwsh
-
-    - name: 3. Build Project
-      run: dotnet build ${{ env.PROJECT_PATH }} -c Release -p:SetVsixVersion=${{ steps.version.outputs.version }}
-
-    - name: 4. Create Information File
-      uses: jsdaniell/create-json@v1.2.3
-      with:
-        name: '${{ env.OUTPUT_PATH }}/${{ env.INFO_FILE }}'
-        json: '{"sha":"${{ github.sha }}", "version":"${{ steps.version.outputs.version }}"}'
-
-    - name: 5. Upload Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        path: |
-          ${{ env.OUTPUT_PATH }}/${{ env.INFO_FILE }}
-          ${{ env.OUTPUT_PATH }}/${{ env.VSIX_FILE }}
+    uses: CodingWithCalvin/.github/.github/workflows/vsix-build.yml@main
+    with:
+      extension-name: OpenInNotepadPlusPlus
+    secrets: inherit
