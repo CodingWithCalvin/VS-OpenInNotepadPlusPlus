@@ -1,15 +1,29 @@
-name: 'Build and Deploy'
+name: Build
 
 on:
   workflow_dispatch:
   pull_request:
     types: [opened, reopened]
+    paths:
+      - 'src/**'
+      - '*.slnx'
+      - '.github/workflows/build.yml'
   push:
     branches:
       - main
+    paths:
+      - 'src/**'
+      - '*.slnx'
+      - '.github/workflows/build.yml'
+
+env:
+  PROJECT_PATH: src/CodingWithCalvin.OpenInNotepadPlusPlus/CodingWithCalvin.OpenInNotepadPlusPlus.csproj
+  OUTPUT_PATH: src/CodingWithCalvin.OpenInNotepadPlusPlus/bin/Release
+  INFO_FILE: CodingWithCalvin.OpenInNotepadPlusPlus.info
+  VSIX_FILE: CodingWithCalvin.OpenInNotepadPlusPlus.vsix
 
 jobs:
-  Release-Build-and-Deploy:
+  build:
     runs-on: windows-latest
 
     steps:
@@ -23,7 +37,6 @@ jobs:
         $day = (Get-Date).Day
         $version = "$year.$month.$day.${{ github.run_number }}"
         echo "version=$version" >> $env:GITHUB_OUTPUT
-        Write-Host "Generated version: $version"
       shell: pwsh
 
     - name: 2. Inject Honeycomb API Key
@@ -34,18 +47,18 @@ jobs:
         Set-Content $file $content
       shell: pwsh
 
-    - name: 3. Building Project
-      run: dotnet build src/CodingWithCalvin.OpenInNotepadPlusPlus/CodingWithCalvin.OpenInNotepadPlusPlus.csproj -c Release -p:SetVsixVersion=${{ steps.version.outputs.version }}
+    - name: 3. Build Project
+      run: dotnet build ${{ env.PROJECT_PATH }} -c Release -p:SetVsixVersion=${{ steps.version.outputs.version }}
 
     - name: 4. Create Information File
       uses: jsdaniell/create-json@v1.2.3
       with:
-        name: 'src/CodingWithCalvin.OpenInNotepadPlusPlus/bin/Release/CodingWithCalvin.OpenInNotepadPlusPlus.info'
+        name: '${{ env.OUTPUT_PATH }}/${{ env.INFO_FILE }}'
         json: '{"sha":"${{ github.sha }}", "version":"${{ steps.version.outputs.version }}"}'
 
-    - name: 5. Publishing Build Artifact
+    - name: 5. Upload Artifact
       uses: actions/upload-artifact@v4
       with:
         path: |
-          src/CodingWithCalvin.OpenInNotepadPlusPlus/bin/Release/CodingWithCalvin.OpenInNotepadPlusPlus.info
-          src/CodingWithCalvin.OpenInNotepadPlusPlus/bin/Release/CodingWithCalvin.OpenInNotepadPlusPlus.vsix
+          ${{ env.OUTPUT_PATH }}/${{ env.INFO_FILE }}
+          ${{ env.OUTPUT_PATH }}/${{ env.VSIX_FILE }}

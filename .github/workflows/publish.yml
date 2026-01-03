@@ -8,84 +8,12 @@ permissions:
   actions: read
 
 jobs:
-  changelog:
-    name: Generate Changelog
-    uses: CodingWithCalvin/.github/.github/workflows/generate-changelog.yml@main
-    secrets: inherit
-
   publish:
-    needs: changelog
-    runs-on: windows-latest
-    outputs:
-      version: ${{ steps.artifact_manifest.outputs.version }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: 1. Download artifact
-        id: download-artifact
-        uses: dawidd6/action-download-artifact@v6
-        with:
-          workflow: build.yml
-          workflow_conclusion: success
-
-      - name: 2. Parse Artifact Manifest
-        id: artifact_manifest
-        uses: ActionsTools/read-json-action@main
-        with:
-          file_path: ./artifact/CodingWithCalvin.OpenInNotepadPlusPlus.info
-
-      - name: 3. Create Tag & Release
-        uses: ncipollo/release-action@v1.14.0
-        with:
-          artifacts: ./artifact/CodingWithCalvin.OpenInNotepadPlusPlus.vsix
-          body: ${{ needs.changelog.outputs.changelog }}
-          makeLatest: true
-          commit: ${{ steps.artifact_manifest.outputs.sha }}
-          tag: ${{ steps.artifact_manifest.outputs.version }}
-
-      - name: 4. Publish Release to Marketplace
-        if: success()
-        uses: CodingWithCalvin/GHA-VSMarketplacePublisher@v1
-        with:
-          marketplace-pat: ${{ secrets.VS_PAT }}
-          publish-manifest-path: ./resources/extension.manifest.json
-          vsix-path: ./artifact/CodingWithCalvin.OpenInNotepadPlusPlus.vsix
-
-  notify-bluesky:
-    name: Post to BlueSky
-    needs: publish
-    uses: CodingWithCalvin/.github/.github/workflows/bluesky-post.yml@main
+    uses: CodingWithCalvin/.github/.github/workflows/vsix-publish.yml@main
     with:
-      post_text: |
-        🚀 Open in Notepad++ v${{ needs.publish.outputs.version }} for #VisualStudio has been released!
-
-        📝 [Release Notes](https://github.com/${{ github.repository }}/releases/tag/${{ needs.publish.outputs.version }})
-        🛒 [Marketplace](https://marketplace.visualstudio.com/items?itemName=CodingWithCalvin.VS-OpenInNotepadPlusPlus)
-
-        #dotnet #visualstudio #vsix #notepadplusplus
-      embed_url: https://marketplace.visualstudio.com/items?itemName=CodingWithCalvin.VS-OpenInNotepadPlusPlus
-      embed_title: "Open in Notepad++ v${{ needs.publish.outputs.version }}"
-      embed_description: "Visual Studio extension to open files in Notepad++"
-    secrets:
-      BLUESKY_USERNAME: ${{ secrets.BLUESKY_USERNAME }}
-      BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
-
-  notify-linkedin:
-    name: Post to LinkedIn
-    needs: publish
-    uses: CodingWithCalvin/.github/.github/workflows/linkedin-post.yml@main
-    with:
-      post_text: |
-        🚀 Open in Notepad++ v${{ needs.publish.outputs.version }} for Visual Studio has been released!
-
-        📝 Release Notes: https://github.com/${{ github.repository }}/releases/tag/${{ needs.publish.outputs.version }}
-        🛒 Marketplace: https://marketplace.visualstudio.com/items?itemName=CodingWithCalvin.VS-OpenInNotepadPlusPlus
-
-        #dotnet #visualstudio #vsix #notepadplusplus
-      article_url: https://marketplace.visualstudio.com/items?itemName=CodingWithCalvin.VS-OpenInNotepadPlusPlus
-      article_title: "Open in Notepad++ v${{ needs.publish.outputs.version }}"
-      article_description: "Visual Studio extension to open files in Notepad++"
-    secrets:
-      LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
-      LINKEDIN_CLIENT_ID: ${{ secrets.LINKEDIN_CLIENT_ID }}
+      extension-name: OpenInNotepadPlusPlus
+      display-name: 'Open in Notepad++'
+      marketplace-id: CodingWithCalvin.VS-OpenInNotepadPlusPlus
+      description: 'Visual Studio extension to open files in Notepad++'
+      hashtags: '#notepadplusplus'
+    secrets: inherit
