@@ -1,4 +1,9 @@
 <Solution>
+  <Configurations>
+    <Configuration Name="Debug" />
+    <Configuration Name="Release" />
+    <Platform Name="AnyCPU" />
+  </Configurations>
   <Folder Name="/Solution Items/">
     <File Path="../resources/extension.manifest.json" />
     <File Path="../.github/workflows/publish.yml" />
