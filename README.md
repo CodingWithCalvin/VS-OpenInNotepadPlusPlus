@@ -5,55 +5,51 @@
 <h1 align="center">Open in Notepad++</h1>
 
 <p align="center">
-  <strong>🚀 Instantly open any file from Visual Studio in Notepad++!</strong>
+  <strong>Instantly open any file from Visual Studio in Notepad++!</strong>
 </p>
 
 <p align="center">
   <a href="https://github.com/CodingWithCalvin/VS-OpenInNotepadPlusPlus/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/CodingWithCalvin/VS-OpenInNotepadPlusPlus?style=for-the-badge" alt="License">
   </a>
-  <a href="https://github.com/CodingWithCalvin/VS-OpenInNotepadPlusPlus/actions/workflows/release_build_and_deploy.yml">
-    <img src="https://img.shields.io/github/actions/workflow/status/CodingWithCalvin/VS-OpenInNotepadPlusPlus/release_build_and_deploy.yml?style=for-the-badge" alt="Build Status">
+  <a href="https://github.com/CodingWithCalvin/VS-OpenInNotepadPlusPlus/actions/workflows/build.yml">
+    <img src="https://img.shields.io/github/actions/workflow/status/CodingWithCalvin/VS-OpenInNotepadPlusPlus/build.yml?style=for-the-badge" alt="Build Status">
   </a>
 </p>
 
 <p align="center">
-  <a href="https://marketplace.visualstudio.com/items?itemName=codingwithcalvin.VS-OpenInNotepadPlusPlus">
-    <img src="https://img.shields.io/visual-studio-marketplace/v/codingwithcalvin.VS-OpenInNotepadPlusPlus?style=for-the-badge" alt="Marketplace Version">
+  <a href="https://marketplace.visualstudio.com/items?itemName=CodingWithCalvin.VS-OpenInNotepadPlusPlus">
+    <img src="https://img.shields.io/visual-studio-marketplace/v/CodingWithCalvin.VS-OpenInNotepadPlusPlus?style=for-the-badge" alt="Marketplace Version">
   </a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=codingwithcalvin.VS-OpenInNotepadPlusPlus">
-    <img src="https://img.shields.io/visual-studio-marketplace/i/codingwithcalvin.VS-OpenInNotepadPlusPlus?style=for-the-badge" alt="Marketplace Installations">
+  <a href="https://marketplace.visualstudio.com/items?itemName=CodingWithCalvin.VS-OpenInNotepadPlusPlus">
+    <img src="https://img.shields.io/visual-studio-marketplace/i/CodingWithCalvin.VS-OpenInNotepadPlusPlus?style=for-the-badge" alt="Marketplace Installations">
   </a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=codingwithcalvin.VS-OpenInNotepadPlusPlus">
-    <img src="https://img.shields.io/visual-studio-marketplace/d/codingwithcalvin.VS-OpenInNotepadPlusPlus?style=for-the-badge" alt="Marketplace Downloads">
+  <a href="https://marketplace.visualstudio.com/items?itemName=CodingWithCalvin.VS-OpenInNotepadPlusPlus">
+    <img src="https://img.shields.io/visual-studio-marketplace/d/CodingWithCalvin.VS-OpenInNotepadPlusPlus?style=for-the-badge" alt="Marketplace Downloads">
   </a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=codingwithcalvin.VS-OpenInNotepadPlusPlus">
-    <img src="https://img.shields.io/visual-studio-marketplace/r/codingwithcalvin.VS-OpenInNotepadPlusPlus?style=for-the-badge" alt="Marketplace Rating">
+  <a href="https://marketplace.visualstudio.com/items?itemName=CodingWithCalvin.VS-OpenInNotepadPlusPlus">
+    <img src="https://img.shields.io/visual-studio-marketplace/r/CodingWithCalvin.VS-OpenInNotepadPlusPlus?style=for-the-badge" alt="Marketplace Rating">
   </a>
 </p>
 
 ---
 
-## ✨ Features
+## Features
 
 - **Right-click to open** - Open any file directly from Solution Explorer
 - **Works everywhere** - Solutions, projects, folders, and individual files
 - **Auto-detection** - Automatically finds Notepad++ in the default install location
 - **Configurable** - Custom executable path via Tools > Options
 
-## 📋 Prerequisites
+## Prerequisites
 
 This extension requires [Notepad++](https://notepad-plus-plus.org/) to be installed on your machine.
 
-## ⚙️ Configuration
-
-The extension automatically detects `notepad++.exe` in the default installation directory. If you've installed Notepad++ to a custom location, configure the path in **Tools > Options > Open in Notepad++**.
-
-## 🛠️ Installation
+## Installation
 
 ### Visual Studio Marketplace
 
-1. Open Visual Studio 2022
+1. Open Visual Studio 2022 or 2026
 2. Go to **Extensions > Manage Extensions**
 3. Search for "Open in Notepad++"
 4. Click **Download** and restart Visual Studio
@@ -62,28 +58,34 @@ The extension automatically detects `notepad++.exe` in the default installation 
 
 Download the latest `.vsix` from the [Releases](https://github.com/CodingWithCalvin/VS-OpenInNotepadPlusPlus/releases) page and double-click to install.
 
-## 🤝 Contributing
+## Configuration
+
+The extension automatically detects `notepad++.exe` in the default installation directory. If you've installed Notepad++ to a custom location, configure the path in **Tools > Options > Open in Notepad++**.
+
+## Contributing
 
 Contributions are welcome! Whether it's bug reports, feature requests, or pull requests - all feedback helps make this extension better.
 
 ### Development Setup
 
 1. Clone the repository
-2. Open `src/CodingWithCalvin.OpenInNotepadPlusPlus.slnx` in Visual Studio
-3. Press F5 to launch the experimental instance
+2. Open `src/CodingWithCalvin.OpenInNotepadPlusPlus.slnx` in Visual Studio 2022 or 2026
+3. Ensure you have the "Visual Studio extension development" workload installed
+4. Press F5 to launch the experimental instance
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 👥 Contributors
+## Contributors
 
 <!-- readme: contributors -start -->
-[![CalvinAllen](https://avatars.githubusercontent.com/u/41448698?v=4&s=64)](https://github.com/CalvinAllen) [![Mertsch](https://avatars.githubusercontent.com/u/9402861?v=4&s=64)](https://github.com/Mertsch) [![randolm](https://avatars.githubusercontent.com/u/67427043?v=4&s=64)](https://github.com/randolm) 
 <!-- readme: contributors -end -->
 
+---
+
 <p align="center">
-  Made with ❤️ by <a href="https://github.com/CalvinAllen">Coding With Calvin</a>
+  Made with ❤️ by <a href="https://github.com/CodingWithCalvin">Coding With Calvin</a>
 </p>
