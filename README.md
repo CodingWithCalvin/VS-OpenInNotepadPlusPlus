@@ -34,18 +34,18 @@
 
 ---
 
-## Features
+## ✨ Features
 
-- **Right-click to open** - Open any file directly from Solution Explorer
-- **Works everywhere** - Solutions, projects, folders, and individual files
-- **Auto-detection** - Automatically finds Notepad++ in the default install location
-- **Configurable** - Custom executable path via Tools > Options
+- 🖱️ **Right-click to open** - Open any file directly from Solution Explorer
+- 🌐 **Works everywhere** - Solutions, projects, folders, and individual files
+- 🔍 **Auto-detection** - Automatically finds Notepad++ in the default install location
+- ⚙️ **Configurable** - Custom executable path via Tools > Options
 
-## Prerequisites
+## 📋 Prerequisites
 
 This extension requires [Notepad++](https://notepad-plus-plus.org/) to be installed on your machine.
 
-## Installation
+## 🛠️ Installation
 
 ### Visual Studio Marketplace
 
@@ -58,28 +58,28 @@ This extension requires [Notepad++](https://notepad-plus-plus.org/) to be instal
 
 Download the latest `.vsix` from the [Releases](https://github.com/CodingWithCalvin/VS-OpenInNotepadPlusPlus/releases) page and double-click to install.
 
-## Configuration
+## ⚙️ Configuration
 
 The extension automatically detects `notepad++.exe` in the default installation directory. If you've installed Notepad++ to a custom location, configure the path in **Tools > Options > Open in Notepad++**.
 
-## Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Whether it's bug reports, feature requests, or pull requests - all feedback helps make this extension better.
 
-### Development Setup
+### 🔧 Development Setup
 
 1. Clone the repository
 2. Open `src/CodingWithCalvin.OpenInNotepadPlusPlus.slnx` in Visual Studio 2022 or 2026
 3. Ensure you have the "Visual Studio extension development" workload installed
 4. Press F5 to launch the experimental instance
 
-## License
+## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## Contributors
+## 👥 Contributors
 
 <!-- readme: contributors -start -->
 <!-- readme: contributors -end -->
