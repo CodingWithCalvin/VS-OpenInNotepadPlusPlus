@@ -17,21 +17,6 @@
   </a>
 </p>
 
-<p align="center">
-  <a href="https://marketplace.visualstudio.com/items?itemName=CodingWithCalvin.VS-OpenInNotepadPlusPlus">
-    <img src="https://img.shields.io/visual-studio-marketplace/v/CodingWithCalvin.VS-OpenInNotepadPlusPlus?style=for-the-badge" alt="Marketplace Version">
-  </a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=CodingWithCalvin.VS-OpenInNotepadPlusPlus">
-    <img src="https://img.shields.io/visual-studio-marketplace/i/CodingWithCalvin.VS-OpenInNotepadPlusPlus?style=for-the-badge" alt="Marketplace Installations">
-  </a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=CodingWithCalvin.VS-OpenInNotepadPlusPlus">
-    <img src="https://img.shields.io/visual-studio-marketplace/d/CodingWithCalvin.VS-OpenInNotepadPlusPlus?style=for-the-badge" alt="Marketplace Downloads">
-  </a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=CodingWithCalvin.VS-OpenInNotepadPlusPlus">
-    <img src="https://img.shields.io/visual-studio-marketplace/r/CodingWithCalvin.VS-OpenInNotepadPlusPlus?style=for-the-badge" alt="Marketplace Rating">
-  </a>
-</p>
-
 ---
 
 ## ✨ Features
